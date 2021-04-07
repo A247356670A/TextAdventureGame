@@ -1,0 +1,36 @@
+[
+  {
+    "Level": 1,
+    "exp": 0,
+    "healthMax": 0,
+    "magicMax": 0,
+    "strength": 0,
+    "endurance": 0,
+    "agility": 0,
+    "luck": 0,
+    "intelligence": 0
+  },
+  {
+    "Level": 2,
+    "exp": 20,
+    "healthMax": 10,
+    "magicMax": 10,
+    "strength": 2,
+    "endurance": 2,
+    "agility": 2,
+    "luck": 2,
+    "intelligence": 2
+  },
+  {
+    "Level": 3,
+    "exp": 50,
+    "healthMax": 20,
+    "magicMax": 20,
+    "strength": 4,
+    "endurance": 4,
+    "agility": 4,
+    "luck": 4,
+    "intelligence": 4
+
+  }
+]
