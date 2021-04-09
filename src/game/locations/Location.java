@@ -20,14 +20,14 @@ public class Location {
             System.out.println();
             switch (key) {
                 case '1':
-                    System.out.print("You want to enter City? (Y/N):");
+                    System.out.print("Do you want to enter City? (Y/N):");
                     char confirmCity = LocationUtility.readConfirmSelection();
                     if(confirmCity == 'Y'){
                         city();
                     }
                     continue;
                 case '2':
-                    System.out.print("You want to enter Battle Map? (Y/N):");
+                    System.out.print("Do you want to enter Battle Map? (Y/N):");
                     char confirmBattle = LocationUtility.readConfirmSelection();
                     if(confirmBattle == 'Y') {
                         battleMap();
@@ -35,7 +35,7 @@ public class Location {
                     continue;
 
                 case '3':
-                    System.out.println("You want to enter Boos Room? (Y/N):");
+                    System.out.println("Do you want to enter Boos Room? (Y/N):");
                     System.out.println("Hint: You will end this game whether you defeat the Boss or not.");
                     char confirmBoss = LocationUtility.readConfirmSelection();
                     if (confirmBoss == 'Y') {

@@ -37,7 +37,6 @@ public class Player extends Peon {
                 String[] tokens = b.toString().split("=");// 1: level; 2: exp; 3: healthMax; 4: magicMax; 5: strength; 6: endurance; 7: agility 8: luck; 9: intelligence.
                 int level = removeLastX(tokens[1],7);
                 int exp = removeLastX(tokens[2],13);
-
                 int addHealthMax = removeLastX(tokens[3],12);
                 int addMagicMax = removeLastX(tokens[4],12);
                 int addStrength = removeLastX(tokens[5],13);
