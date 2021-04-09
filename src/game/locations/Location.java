@@ -13,9 +13,9 @@ public class Location {
         mainMapFlag = true;
         do {
             System.out.println("---------------Main Map-----------------");
-            System.out.println("               1. Stormwind(x) City");
-            System.out.println("               2. Battle Map");
-            System.out.println("               3. Boss Room");
+            System.out.println("        1. Stormwind(x) City");
+            System.out.println("        2. Battle Map");
+            System.out.println("        3. Boss Room");
             char key = LocationUtility.readMapSelection();
             System.out.println();
             switch (key) {
@@ -36,10 +36,14 @@ public class Location {
 
                 case '3':
                     System.out.println("Do you want to enter Boos Room? (Y/N):");
-                    System.out.println("Hint: You will end this game whether you defeat the Boss or not.");
-                    char confirmBoss = LocationUtility.readConfirmSelection();
-                    if (confirmBoss == 'Y') {
-                        mainMapFlag = false;
+                    char confirmBoss1 = LocationUtility.readConfirmSelection();
+                    if (confirmBoss1 == 'Y') {
+                        System.out.println("Warning!: You will not be allowed to leave once you entry this room.");// You will end this game whether you defeat the Boss or not
+                        System.out.println("Warning!: Are you sure?(Y/N)");
+                        char confirmBoss2 = LocationUtility.readConfirmSelection();
+                        if (confirmBoss2 == 'Y'){
+                            mainMapFlag = false;
+                        }
                     }
             }
         } while (mainMapFlag);
@@ -53,9 +57,9 @@ public class Location {
         battleMapFlag = true;
         do {
             System.out.println("---------------Battle Map-----------------");
-            System.out.println("               1. Go ahead");
-            System.out.println("               2. Search");
-            System.out.println("               3. Leave");
+            System.out.println("        1. Go ahead");
+            System.out.println("        2. Search");
+            System.out.println("        3. Leave");
             char key = LocationUtility.readMapSelection();
             System.out.println();
             switch (key) {
@@ -66,7 +70,7 @@ public class Location {
                     //探索？？
                     continue;
                 case '3':
-                    System.out.print("You want to leave Battle Map? (Y/N):");
+                    System.out.print("Do you want to leave Battle Map? (Y/N):");
                     char confirm = LocationUtility.readConfirmSelection();
                     if(confirm == 'Y'){
                         battleMapFlag = false;
@@ -80,9 +84,9 @@ public class Location {
         cityFlag = true;
         do {
             System.out.println("---------------City-----------------");
-            System.out.println("               1. NPC");
-            System.out.println("               2. Pass this turn");
-            System.out.println("               3. Leave");
+            System.out.println("        1. NPC");
+            System.out.println("        2. Pass this turn");
+            System.out.println("        3. Leave");
             char key = LocationUtility.readMapSelection();
             System.out.println();
             switch (key) {
@@ -93,7 +97,7 @@ public class Location {
                     //休息的功能
                     continue;
                 case '3':
-                    System.out.print("You want to leave City? (Y/N):");
+                    System.out.print("Do you want to leave City? (Y/N):");
                     char confirm = LocationUtility.readConfirmSelection();
                     if(confirm == 'Y'){
                         cityFlag = false;
