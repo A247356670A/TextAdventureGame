@@ -1,7 +1,12 @@
 package game;
 
-public class GameLauncher {
-    public static void main(String[] args) {
+import game.locations.Location;
 
+public class GameLauncher {
+
+    public static void main(String[] args) {
+        Location a = new Location();
+
+        a.mainMap();
     }
 }
