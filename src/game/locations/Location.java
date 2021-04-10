@@ -12,8 +12,6 @@ public class Location {
     private boolean cityFlag;
 
 
-
-
     public void mainMap(Player player) {
         mainMapFlag = true;
         do {
@@ -27,14 +25,14 @@ public class Location {
                 case '1':
                     System.out.print("Do you want to enter City? (Y/N):");
                     char confirmCity = LocationUtility.readConfirmSelection();
-                    if(confirmCity == 'Y'){
+                    if (confirmCity == 'Y') {
                         city(player);
                     }
                     continue;
                 case '2':
                     System.out.print("Do you want to enter Battle Map? (Y/N):");
                     char confirmBattle = LocationUtility.readConfirmSelection();
-                    if(confirmBattle == 'Y') {
+                    if (confirmBattle == 'Y') {
                         battleMap(player);
                     }
                     continue;
@@ -46,7 +44,7 @@ public class Location {
                         System.out.println("Warning!: You will not be allowed to leave once you entry this room.");// You will end this game whether you defeat the Boss or not
                         System.out.println("Warning!: Are you sure?(Y/N)");
                         char confirmBoss2 = LocationUtility.readConfirmSelection();
-                        if (confirmBoss2 == 'Y'){
+                        if (confirmBoss2 == 'Y') {
                             mainMapFlag = false;
                         }
                     }
@@ -65,22 +63,46 @@ public class Location {
             System.out.println("---------------Battle Map-----------------");
             System.out.println("        1. Go ahead");
             System.out.println("        2. Search");
-            System.out.println("        3. Leave");
+            System.out.println("        3. View");
+            System.out.println("        4. Leave");
             char key = LocationUtility.readMapSelection();
             System.out.println();
             switch (key) {
                 case '1':
                     //前进是否要加事件？
                     Enemy enemy = enemyFactory.generateEnemies(player);
-                    new Battle(player,enemy);
+                    new Battle(player, enemy);
                     continue;
                 case '2':
                     //探索？？
                     continue;
                 case '3':
+                    //inspect?? 需要确定每个location和location里都有什么东西.
+                    boolean inspectFlag = true;
+                    while (inspectFlag) {
+                        System.out.println("what would you like to inspect?");
+                        System.out.println("1. Check " + player.getName());
+                        System.out.println("2. Check Some NPC name");
+                        System.out.println("3. leave");
+                        char target = LocationUtility.readMapSelection();
+                        switch (target) {
+                            case '1':
+                                player.view();
+                                continue;
+                            case '2':
+                                continue;
+                            case '3':
+                                inspectFlag = false;
+                                break;
+                        }
+                    }
+
+
+                    continue;
+                case '4':
                     System.out.print("Do you want to leave Battle Map? (Y/N):");
                     char confirm = LocationUtility.readConfirmSelection();
-                    if(confirm == 'Y'){
+                    if (confirm == 'Y') {
                         battleMapFlag = false;
                     }
                     break;
@@ -88,7 +110,7 @@ public class Location {
         } while (battleMapFlag);
     }
 
-    public void city(Player player){
+    public void city(Player player) {
         cityFlag = true;
         do {
             System.out.println("---------------City-----------------");
@@ -107,7 +129,7 @@ public class Location {
                 case '3':
                     System.out.print("Do you want to leave City? (Y/N):");
                     char confirm = LocationUtility.readConfirmSelection();
-                    if(confirm == 'Y'){
+                    if (confirm == 'Y') {
                         cityFlag = false;
                     }
                     break;
@@ -115,7 +137,7 @@ public class Location {
         } while (cityFlag);
     }
 
-    public void bossRoom(Player player){
+    public void bossRoom(Player player) {
 
     }
 }

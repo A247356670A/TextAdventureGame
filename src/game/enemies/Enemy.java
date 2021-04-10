@@ -87,4 +87,15 @@ public abstract class Enemy extends Peon {
     public void setCritChance(int critChance) {
         this.critChance = critChance;
     }
+
+    @Override
+    public void view() {
+        System.out.println("The current status of " + this.getName() + " is: ");
+        System.out.println("HP: " + this.getHealth() + "/" + this.getHealthMax());
+        System.out.println("MP: " + this.getMagic() + "/" + this.getMagicMax());
+        System.out.println("Attack: " + this.getAttack());
+        System.out.println("Defence: " + this.getDefence());
+        System.out.println("AvoidChance: " + this.getAvoidChance());
+        System.out.println("CritChance: " + this.getCritChance());
+    }
 }

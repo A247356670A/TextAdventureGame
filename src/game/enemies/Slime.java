@@ -4,9 +4,11 @@ import java.util.Random;
 
 public class Slime extends Enemy{
 
+    private EnemyProperty;
+
     public Slime(int playerLevel){
         Random rand = new Random();
-        int health = 10 + playerLevel * (rand.nextInt(5) + 1);
+        int health = 20 + playerLevel * (rand.nextInt(5) + 1);
         this.setName("Slime");
         this.setHealthMax(health);
         this.setHealth(health);

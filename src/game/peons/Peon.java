@@ -24,7 +24,7 @@ public abstract class Peon {
     private Map<EquipmentLocation, Item> equipments;
 
     public Peon() {
-        this("default", 100, 100, new HashMap<>());
+        this("Default Player", 100, 100, new HashMap<>());
     }
 
     public Peon(String name, int healthMax, int health, Map<EquipmentLocation, Item> equipments) {
@@ -51,7 +51,7 @@ public abstract class Peon {
      */
     public void setHealthMax(int healthMax) {
         this.healthMax = healthMax;
-        System.out.println("HP: " + this.getHealth() + "/" + this.healthMax);
+//        System.out.println("HP: " + this.getHealth() + "/" + this.healthMax);
     }
 
     public int getHealth() {
@@ -69,7 +69,7 @@ public abstract class Peon {
         } else {
             this.health = health;
         }
-        System.out.println("HP: " + this.getHealth() + "/" + this.healthMax);
+//        System.out.println("HP: " + this.getHealth() + "/" + this.healthMax);
     }
 
     public int getMagicMax() {
@@ -83,7 +83,7 @@ public abstract class Peon {
      */
     public void setMagicMax(int magicMax) {
         this.magicMax = magicMax;
-        System.out.println("MP: " + this.getMagic() + "/" + this.magicMax);
+//        System.out.println("MP: " + this.getMagic() + "/" + this.magicMax);
 
     }
 
@@ -102,7 +102,7 @@ public abstract class Peon {
         } else {
             this.magic = magic;
         }
-        System.out.println("MP: " + this.getMagic() + "/" + this.magicMax);
+//        System.out.println("MP: " + this.getMagic() + "/" + this.magicMax);
 
     }
 
@@ -126,7 +126,7 @@ public abstract class Peon {
             this.setAttack(this.strength * 2);
 
         }
-        System.out.println("STR: " + this.strength);
+//        System.out.println("STR: " + this.strength);
 
     }
 
@@ -150,7 +150,7 @@ public abstract class Peon {
             this.endurance = endurance;
             this.setDefence(this.endurance);
         }
-        System.out.println("EDU: " + this.endurance);
+//        System.out.println("EDU: " + this.endurance);
 
 
     }
@@ -172,7 +172,7 @@ public abstract class Peon {
             this.agility = agility;
             this.setAvoidChance(this.agility);
         }
-        System.out.println("AGI: " + this.agility);
+//        System.out.println("AGI: " + this.agility);
     }
 
     public int getLuck() {
@@ -192,7 +192,7 @@ public abstract class Peon {
             this.luck = luck;
             this.setCritChance(this.luck);
         }
-        System.out.println("LUCK: " + this.luck);
+//        System.out.println("LUCK: " + this.luck);
     }
 
     public int getIntelligence() {
@@ -211,7 +211,7 @@ public abstract class Peon {
             System.out.println("INT: " + this.intelligence);
         }else {
             this.intelligence = intelligence;
-            System.out.println("INT: " + this.intelligence);
+//            System.out.println("INT: " + this.intelligence);
         }
     }
 
@@ -261,5 +261,16 @@ public abstract class Peon {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void view(){
+        System.out.println("The current status of " + this.getName() + " is: ");
+        System.out.println("HP: " + this.getHealth() + "/" + this.healthMax);
+        System.out.println("MP: " + this.getMagic() + "/" + this.magicMax);
+        System.out.println("STR: " + this.strength);
+        System.out.println("EDU: " + this.endurance);
+        System.out.println("AGI: " + this.agility);
+        System.out.println("LUCK: " + this.luck);
+        System.out.println("INT: " + this.intelligence);
     }
 }
