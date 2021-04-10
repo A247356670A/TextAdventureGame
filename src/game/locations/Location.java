@@ -1,5 +1,10 @@
 package game.locations;
 
+import game.enemies.Enemy;
+import game.enemies.EnemyFactory;
+import game.event.Battle;
+import game.peons.Player;
+
 public class Location {
     private boolean mainMapFlag;
     private boolean battleMapFlag;
@@ -9,11 +14,11 @@ public class Location {
 
 
 
-    public void mainMap() {
+    public void mainMap(Player player) {
         mainMapFlag = true;
         do {
             System.out.println("---------------Main Map-----------------");
-            System.out.println("        1. Stormwind(x) City");
+            System.out.println("        1. StormWind City");
             System.out.println("        2. Battle Map");
             System.out.println("        3. Boss Room");
             char key = LocationUtility.readMapSelection();
@@ -23,14 +28,14 @@ public class Location {
                     System.out.print("Do you want to enter City? (Y/N):");
                     char confirmCity = LocationUtility.readConfirmSelection();
                     if(confirmCity == 'Y'){
-                        city();
+                        city(player);
                     }
                     continue;
                 case '2':
                     System.out.print("Do you want to enter Battle Map? (Y/N):");
                     char confirmBattle = LocationUtility.readConfirmSelection();
                     if(confirmBattle == 'Y') {
-                        battleMap();
+                        battleMap(player);
                     }
                     continue;
 
@@ -48,13 +53,14 @@ public class Location {
             }
         } while (mainMapFlag);
 
-        bossRoom();
+        bossRoom(player);
 
     }
 
 
-    public void battleMap() {
+    public void battleMap(Player player) {
         battleMapFlag = true;
+        EnemyFactory enemyFactory = new EnemyFactory();
         do {
             System.out.println("---------------Battle Map-----------------");
             System.out.println("        1. Go ahead");
@@ -65,6 +71,8 @@ public class Location {
             switch (key) {
                 case '1':
                     //前进是否要加事件？
+                    Enemy enemy = enemyFactory.generateEnemies(player);
+                    new Battle(player,enemy);
                     continue;
                 case '2':
                     //探索？？
@@ -80,7 +88,7 @@ public class Location {
         } while (battleMapFlag);
     }
 
-    public void city(){
+    public void city(Player player){
         cityFlag = true;
         do {
             System.out.println("---------------City-----------------");
@@ -107,7 +115,7 @@ public class Location {
         } while (cityFlag);
     }
 
-    public void bossRoom(){
+    public void bossRoom(Player player){
 
     }
 }
