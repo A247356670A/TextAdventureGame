@@ -1,13 +1,14 @@
 package game.enemies;
 
 public enum EnemyProperty {
+    NORMAL,
     KAWAI,
     ICED,
     FIRED,
     ROCKED,
     GHOSTED;
 
-    private EnemyProperty(){
+    EnemyProperty(){
 
     }
 }
