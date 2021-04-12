@@ -121,7 +121,7 @@ public abstract class Peon {
             this.strength = strength;
             this.setAttack(Math.max((this.getAttack() + (dif * 2)), 0));
             this.setHealthMax(Math.max((this.getHealthMax() + (dif * 2)), 0));
-        }else {
+        } else {
             this.strength = strength;
             this.setAttack(this.strength * 2);
 
@@ -141,12 +141,12 @@ public abstract class Peon {
      * @param endurance
      */
     public void setEndurance(int endurance) {
-        if (this.endurance != 0){
+        if (this.endurance != 0) {
             int dif = endurance - this.endurance;
             this.endurance = endurance;
-            this.setDefence(Math.max((this.getDefence() + dif),0));
-            this.setHealthMax(Math.max((this.getHealthMax() + (dif * 3)),100));
-        }else {
+            this.setDefence(Math.max((this.getDefence() + dif), 0));
+            this.setHealthMax(Math.max((this.getHealthMax() + (dif * 3)), 100));
+        } else {
             this.endurance = endurance;
             this.setDefence(this.endurance);
         }
@@ -161,6 +161,7 @@ public abstract class Peon {
 
     /**
      * add/minus avoidChance as the value of agility
+     *
      * @param agility
      */
     public void setAgility(int agility) {
@@ -168,7 +169,7 @@ public abstract class Peon {
             int dif = agility - this.agility;
             this.agility = agility;
             this.setAvoidChance(Math.max((this.getAgility() + dif), 0));
-        }else {
+        } else {
             this.agility = agility;
             this.setAvoidChance(this.agility);
         }
@@ -181,6 +182,7 @@ public abstract class Peon {
 
     /**
      * add/minus critChance as the value of luck
+     *
      * @param luck
      */
     public void setLuck(int luck) {
@@ -188,7 +190,7 @@ public abstract class Peon {
             int dif = luck - this.agility;
             this.luck = luck;
             this.setCritChance(Math.max((this.getCritChance() + dif), 0));
-        }else {
+        } else {
             this.luck = luck;
             this.setCritChance(this.luck);
         }
@@ -201,6 +203,7 @@ public abstract class Peon {
 
     /**
      * add/minus magicMax as 3 times of intelligence
+     *
      * @param intelligence
      */
     public void setIntelligence(int intelligence) {
@@ -208,11 +211,11 @@ public abstract class Peon {
             int dif = intelligence - this.intelligence;
             this.intelligence = intelligence;
             setMagicMax(Math.max((this.getMagicMax() + (dif * 3)), 100));
-            System.out.println("INT: " + this.intelligence);
-        }else {
+        } else {
             this.intelligence = intelligence;
-//            System.out.println("INT: " + this.intelligence);
         }
+//            System.out.println("INT: " + this.intelligence);
+
     }
 
     public int getAttack() {
@@ -263,7 +266,7 @@ public abstract class Peon {
         this.name = name;
     }
 
-    public void view(){
+    public void view() {
         System.out.println("The current status of " + this.getName() + " is: ");
         System.out.println("HP: " + this.getHealth() + "/" + this.healthMax);
         System.out.println("MP: " + this.getMagic() + "/" + this.magicMax);

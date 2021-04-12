@@ -103,8 +103,10 @@ public class Battle {
 
     public void attack(Player player, Enemy enemy) {
         // player turn
+        Random rand = new Random();
         System.out.println("You attack " + enemy.getName() + " with some weapon");
         int playerDamage = player.getAttack() - enemy.getDefence();
+        playerDamage = rand.nextInt((int)(playerDamage * 1.2)) + (int)(playerDamage * 0.8);
         if (playerDamage <= 0){
             playerDamage = 0;
         }
@@ -123,6 +125,7 @@ public class Battle {
             // enemy turn
             System.out.println(enemy.getName() + " attack you with some weapon");
             int enemyDamage = enemy.getAttack() - player.getDefence();
+            enemyDamage = rand.nextInt((int)(enemyDamage * 1.2)) + (int)(enemyDamage * 0.8);
             if (enemyDamage <= 0){
                 enemyDamage = 0;
             }

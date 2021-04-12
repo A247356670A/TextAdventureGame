@@ -1,60 +1,60 @@
 [
   {
     "enemyProperty": "NORMAL",
-    "basicHealth": 0,
-    "basicAttack": 0,
-    "basicDefence": 0,
-    "basicAvoidChance": 0,
-    "basicCritChance": 0,
-    "ExpGain": 10
+    "basicHealth": 20,
+    "basicAttack": 10,
+    "basicDefence": 5,
+    "basicAvoidChance": 1,
+    "basicCritChance": 1,
+    "ExpGain": 1
   },
   {
     "enemyProperty": "KAWAI",
-    "basicHealth": 0,
-    "basicAttack": 0,
-    "basicDefence": 0,
-    "basicAvoidChance": 0,
-    "basicCritChance": 0,
-    "ExpGain": 10
+    "basicHealth": 20,
+    "basicAttack": 10,
+    "basicDefence": 5,
+    "basicAvoidChance": 11,
+    "basicCritChance": 1,
+    "ExpGain": 11
   },
   {
     "enemyProperty": "ICED",
-    "basicHealth": 0,
-    "basicAttack": 0,
-    "basicDefence": 0,
-    "basicAvoidChance": 0,
-    "basicCritChance": 0,
-    "ExpGain": 10
+    "basicHealth": 20,
+    "basicAttack": 10,
+    "basicDefence": 5,
+    "basicAvoidChance": 1,
+    "basicCritChance": 11,
+    "ExpGain": 2
 
   },
   {
     "enemyProperty": "FIRED",
-    "basicHealth": 0,
-    "basicAttack": 0,
-    "basicDefence": 0,
-    "basicAvoidChance": 0,
-    "basicCritChance": 0,
-    "ExpGain": 10
+    "basicHealth": 20,
+    "basicAttack": 20,
+    "basicDefence": 5,
+    "basicAvoidChance": 1,
+    "basicCritChance": 1,
+    "ExpGain": 2
 
   },
   {
     "enemyProperty": "ROCKED",
-    "basicHealth": 0,
-    "basicAttack": 0,
-    "basicDefence": 0,
-    "basicAvoidChance": 0,
-    "basicCritChance": 0,
-    "ExpGain": 10
+    "basicHealth": 25,
+    "basicAttack": 10,
+    "basicDefence": 10,
+    "basicAvoidChance": 1,
+    "basicCritChance": 1,
+    "ExpGain": 2
 
   },
   {
     "enemyProperty": "GHOSTED",
-    "basicHealth": 0,
-    "basicAttack": 0,
-    "basicDefence": 0,
-    "basicAvoidChance": 0,
-    "basicCritChance": 0,
-    "ExpGain": 10
+    "basicHealth": 25,
+    "basicAttack": 15,
+    "basicDefence": 10,
+    "basicAvoidChance": 6,
+    "basicCritChance": 6,
+    "ExpGain": 3
 
   }
 ]

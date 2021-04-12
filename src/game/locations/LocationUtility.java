@@ -31,7 +31,7 @@ public class LocationUtility {
     }
 
     /**
-     * 用于地图界面选择（暂定3个选项），非1,2,3的选项返回异常
+     * 用于地图界面选择（暂定3个选项），非1,2,3,4的选项返回异常
      */
 
     public static char readMapSelection(){
@@ -39,7 +39,7 @@ public class LocationUtility {
         for(; ;){
             String str = readKeyBoard(1, false);
             c = str.charAt(0);
-            if (c != '1' && c != '2' && c != '3') {
+            if (c != '1' && c != '2' && c != '3' && c != '4') {
                 System.out.println("Bad input, please retype: ");
             }else{
                 break;

@@ -56,7 +56,7 @@ public class Player extends Peon {
 
     public void loadCharacterLevels() {
         Gson gson = new Gson();
-        JsonReader jsonReader = null;
+        JsonReader jsonReader;
         try {
             jsonReader = new JsonReader(new FileReader("json/db/characterLevels.json"));
             List<JsonObject> list = gson.fromJson(jsonReader, List.class);
@@ -73,12 +73,9 @@ public class Player extends Peon {
                 int addIntelligence = removeLastX(tokens[9],3);
                 List<Integer> properties= Arrays.asList(exp,addHealthMax,addMagicMax,addStrength, addEndurance,addAgility,addLuck,addIntelligence);
                 characterLevels.put(level, properties);
-
 //                System.out.println(removeLastX(tokens[9],3));
 //                System.out.println(b);
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }

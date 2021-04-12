@@ -30,4 +30,15 @@ public class EnemyFactoryTest {
         System.out.println(slime.getIntelligence());
 
     }
+
+    @Test
+    public void loadEnemyProperties() {
+        EnemyFactory enemyFactory = new EnemyFactory();
+        Player player = new Player();
+        Enemy slime = enemyFactory.generateEnemies(player);
+    }
+
+    @Test
+    public void testGenerateEnemies() {
+    }
 }
