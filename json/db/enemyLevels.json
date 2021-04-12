@@ -2,59 +2,65 @@
   {
     "enemyProperty": "NORMAL",
     "basicHealth": 20,
-    "basicAttack": 10,
+    "basicAttack": 6,
     "basicDefence": 5,
     "basicAvoidChance": 1,
     "basicCritChance": 1,
-    "ExpGain": 1
+    "ExpGain": 1,
+    "rate": 22
   },
   {
     "enemyProperty": "KAWAI",
     "basicHealth": 20,
-    "basicAttack": 10,
+    "basicAttack": 6,
     "basicDefence": 5,
     "basicAvoidChance": 11,
     "basicCritChance": 1,
-    "ExpGain": 11
+    "ExpGain": 11,
+    "rate": 2
   },
   {
     "enemyProperty": "ICED",
     "basicHealth": 20,
-    "basicAttack": 10,
+    "basicAttack": 6,
     "basicDefence": 5,
     "basicAvoidChance": 1,
     "basicCritChance": 11,
-    "ExpGain": 2
+    "ExpGain": 2,
+    "rate": 22
 
   },
   {
     "enemyProperty": "FIRED",
     "basicHealth": 20,
-    "basicAttack": 20,
+    "basicAttack": 12,
     "basicDefence": 5,
     "basicAvoidChance": 1,
     "basicCritChance": 1,
-    "ExpGain": 2
+    "ExpGain": 2,
+    "rate": 22
 
   },
   {
     "enemyProperty": "ROCKED",
     "basicHealth": 25,
-    "basicAttack": 10,
+    "basicAttack": 6,
     "basicDefence": 10,
     "basicAvoidChance": 1,
     "basicCritChance": 1,
-    "ExpGain": 2
+    "ExpGain": 2,
+    "rate": 22
 
   },
   {
     "enemyProperty": "GHOSTED",
     "basicHealth": 25,
-    "basicAttack": 15,
+    "basicAttack": 10,
     "basicDefence": 10,
     "basicAvoidChance": 6,
     "basicCritChance": 6,
-    "ExpGain": 3
+    "ExpGain": 3,
+    "rate": 10
 
   }
 ]

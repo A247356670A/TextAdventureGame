@@ -3,6 +3,8 @@ package game.enemies;
 import game.peons.Player;
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.junit.Assert.*;
 
 public class EnemyFactoryTest {
@@ -33,9 +35,18 @@ public class EnemyFactoryTest {
 
     @Test
     public void loadEnemyProperties() {
+        Random rand = new Random();
         EnemyFactory enemyFactory = new EnemyFactory();
         Player player = new Player();
         Enemy slime = enemyFactory.generateEnemies(player);
+        slime.view();
+        int enemyDamage = slime.getAttack() - player.getDefence();
+        System.out.println(enemyDamage);
+        if (enemyDamage <= 0){
+            enemyDamage = 1;
+        }
+        enemyDamage = rand.nextInt((int)(enemyDamage * 1.2)) + (int)(enemyDamage * 0.8);
+        System.out.println(enemyDamage);
     }
 
     @Test

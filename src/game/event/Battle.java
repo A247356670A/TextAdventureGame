@@ -106,10 +106,11 @@ public class Battle {
         Random rand = new Random();
         System.out.println("You attack " + enemy.getName() + " with some weapon");
         int playerDamage = player.getAttack() - enemy.getDefence();
-        playerDamage = rand.nextInt((int)(playerDamage * 1.2)) + (int)(playerDamage * 0.8);
+
         if (playerDamage <= 0){
-            playerDamage = 0;
+            playerDamage = 1;
         }
+        playerDamage = rand.nextInt((int)(playerDamage * 1.2)) + (int)(playerDamage * 0.8);
         if (!avoid(enemy)) {
             if (!crit(player)) {
                 enemy.setHealth(enemy.getHealth() - playerDamage);
@@ -125,10 +126,10 @@ public class Battle {
             // enemy turn
             System.out.println(enemy.getName() + " attack you with some weapon");
             int enemyDamage = enemy.getAttack() - player.getDefence();
-            enemyDamage = rand.nextInt((int)(enemyDamage * 1.2)) + (int)(enemyDamage * 0.8);
             if (enemyDamage <= 0){
-                enemyDamage = 0;
+                enemyDamage = 1;
             }
+            enemyDamage = rand.nextInt((int)(enemyDamage * 1.2)) + (int)(enemyDamage * 0.8);
             if (!avoid(player)) {
                 if (!crit(enemy)) {
                     player.setHealth(player.getHealth() - enemyDamage);//sdada
@@ -151,7 +152,7 @@ public class Battle {
         int lostHealth = player.getHealthMax() - player.getHealth();
         int healHealth = lostHealth * player.getEndurance() / 100 - random.nextInt(player.getEndurance());
         if (healHealth <= 0){
-            healHealth = 0;
+            healHealth = 1;
         }
         player.setHealth(player.getHealth() + healHealth);
         System.out.println("You take a breath and recover " + healHealth + " points health.");
@@ -160,6 +161,10 @@ public class Battle {
         // enemy turn
         System.out.println(enemy.getName() + " attack you with some weapon");
         int enemyDamage = enemy.getAttack() - player.getDefence();
+        if (enemyDamage <= 0){
+            enemyDamage = 1;
+        }
+        enemyDamage = random.nextInt((int)(enemyDamage * 1.2)) + (int)(enemyDamage * 0.8);
         if (!avoid(player)) {
             if (!crit(enemy)) {
                 player.setHealth(player.getHealth() - enemyDamage);//sdada
