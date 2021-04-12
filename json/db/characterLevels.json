@@ -32,5 +32,17 @@
     "luck": 4,
     "intelligence": 4
 
+  },
+  {
+    "Level": 4,
+    "exp": 100,
+    "healthMax": 25,
+    "magicMax": 25,
+    "strength": 4,
+    "endurance": 4,
+    "agility": 4,
+    "luck": 4,
+    "intelligence": 4
+
   }
 ]
