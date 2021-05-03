@@ -11,10 +11,12 @@ import java.util.Random;
 
 public class Battle {
     Boolean battleFlag;
+    Boolean escapeFlag;
 
 
     public Battle(Player player, Enemy enemy) {
         battleFlag = true;
+        escapeFlag = true;
         while (battleFlag) {
             System.out.println("What would you do?");
             System.out.println("1. Attack");
@@ -74,12 +76,29 @@ public class Battle {
                     }
                     continue;
                 case '4':
-                    System.out.print("Do you want to Escape? (Y/N):");
-                    char confirm = LocationUtility.readConfirmSelection();
-                    if (confirm == 'Y') {
-                        battleFlag = false;
+                    if (escapeFlag){
+                        System.out.print("Do you want to Escape? (Y/N):");
+                        char confirm = LocationUtility.readConfirmSelection();
+                        if (confirm == 'Y') {
+                            Random random = new Random();
+
+                            int luck = 50 + player.getLuck() - enemy.getSkillChance();
+                            int result = random.nextInt(100);
+                            if (result < luck){
+                                System.out.println("You are luck to escape from that battle.");
+                                battleFlag = false;
+
+                            }else {
+                                System.out.println("You are failed to escape from this battle.");
+                                escapeFlag = false;
+                            }
+
+                        }
+                        break;
+                    }else {
+                        System.out.println("You can't escape anymore.");
                     }
-                    break;
+
             }
         }
     }

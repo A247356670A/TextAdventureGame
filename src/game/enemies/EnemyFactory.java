@@ -64,7 +64,7 @@ public class EnemyFactory {
             List<JsonObject> list = gson.fromJson(jsonReader, List.class);
             for (Object b : list) {
                 String[] tokens = b.toString().split("=");
-                System.out.println(b);
+//                System.out.println(b);
                 String enemyName = tokens[1].substring(0, tokens[1].length() - 6);
                 int rate = removeLastX(tokens[2], 3);
                 enemies.put(enemyName, rate);
@@ -81,7 +81,7 @@ public class EnemyFactory {
         HashMap<String, Integer> enemies = loadEnemies(file);
         Random random = new Random();
         int result = random.nextInt(enemies.get("SLIME") + enemies.get("GOBLIN"));
-        if (result < enemies.get("SLIME")){
+        if (result < enemies.get("SLIME") - player.getLevel() * 2){
             return this.getSlime(player.getLevel());
         }else {
             return this.getGoblin(player.getLevel());
@@ -163,19 +163,19 @@ public class EnemyFactory {
         } else if (result >= normalProperties.get(6) + poisonedProperties.get(6) && result < normalProperties.get(6) + poisonedProperties.get(6) + wickedProperties.get(6)) {
             if (goblinProperties.containsKey("WICKED")) {
                 System.out.println("A WICKED goblin shows up!");
-                return new Slime(playerLevel, EnemyProperty.WICKED, wickedProperties.get(0), wickedProperties.get(1), wickedProperties.get(2), wickedProperties.get(3), wickedProperties.get(4), wickedProperties.get(5));
+                return new Goblin(playerLevel, EnemyProperty.WICKED, wickedProperties.get(0), wickedProperties.get(1), wickedProperties.get(2), wickedProperties.get(3), wickedProperties.get(4), wickedProperties.get(5));
             }
 
         } else if (result >= normalProperties.get(6) + poisonedProperties.get(6) + wickedProperties.get(6) && result < normalProperties.get(6) + poisonedProperties.get(6) + wickedProperties.get(6) + heavyArmoredProperties.get(6)) {
             if (goblinProperties.containsKey("HEAVYARMORED")) {
                 System.out.println("A HEAVYARMORED goblin shows up!");
-                return new Slime(playerLevel, EnemyProperty.HEAVYARMORED, heavyArmoredProperties.get(0), heavyArmoredProperties.get(1), heavyArmoredProperties.get(2), heavyArmoredProperties.get(3), heavyArmoredProperties.get(4), heavyArmoredProperties.get(5));
+                return new Goblin(playerLevel, EnemyProperty.HEAVYARMORED, heavyArmoredProperties.get(0), heavyArmoredProperties.get(1), heavyArmoredProperties.get(2), heavyArmoredProperties.get(3), heavyArmoredProperties.get(4), heavyArmoredProperties.get(5));
             }
 
         }  else {
             if (goblinProperties.containsKey("ELITE")) {
                 System.out.println("A ELITE goblin shows up!");
-                return new Slime(playerLevel, EnemyProperty.ELITE, eliteProperties.get(0), eliteProperties.get(1), eliteProperties.get(2), eliteProperties.get(3), eliteProperties.get(4), eliteProperties.get(5));
+                return new Goblin(playerLevel, EnemyProperty.ELITE, eliteProperties.get(0), eliteProperties.get(1), eliteProperties.get(2), eliteProperties.get(3), eliteProperties.get(4), eliteProperties.get(5));
             }
 
         }
