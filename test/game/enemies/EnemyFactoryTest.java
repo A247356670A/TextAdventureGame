@@ -3,6 +3,7 @@ package game.enemies;
 import game.peons.Player;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.Random;
 
 import static org.junit.Assert.*;
@@ -51,5 +52,14 @@ public class EnemyFactoryTest {
 
     @Test
     public void testGenerateEnemies() {
+    }
+
+    @Test
+    public void loadEnemies() {
+        Random rand = new Random();
+        EnemyFactory enemyFactory = new EnemyFactory();
+        Player player = new Player();
+        File file = new File("json/db/enemies.json");
+        enemyFactory.loadEnemies(file);
     }
 }

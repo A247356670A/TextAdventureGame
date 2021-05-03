@@ -1,0 +1,11 @@
+[
+  {
+    "enemyName": "SLIME",
+    "rate": 80
+  },
+  {
+    "enemyName": "GOBLIN",
+    "rate": 20
+
+  }
+]

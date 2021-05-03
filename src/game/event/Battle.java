@@ -124,7 +124,7 @@ public class Battle {
         }
         if (enemy.getHealth() > 0) {
             // enemy turn
-            System.out.println(enemy.getName() + " attack you with some weapon");
+            System.out.println(enemy.getName()+  " attack you with some weapon");
             int enemyDamage = enemy.getAttack() - player.getDefence();
             if (enemyDamage <= 0){
                 enemyDamage = 1;
@@ -132,7 +132,7 @@ public class Battle {
             enemyDamage = rand.nextInt((int)(enemyDamage * 1.2)) + (int)(enemyDamage * 0.8);
             if (!avoid(player)) {
                 if (!crit(enemy)) {
-                    player.setHealth(player.getHealth() - enemyDamage);//sdada
+                    player.setHealth(player.getHealth() - enemyDamage);
                     System.out.println("You get " + enemyDamage + " points damage from the " + enemy.getName() + "  (" + player.getHealth() + "/" + player.getHealthMax() + ")");
                 } else {
                     enemyDamage = enemyDamage * 2;
@@ -194,6 +194,15 @@ public class Battle {
         int peonCritChance = peon.getCritChance();
         if (random.nextInt(100) <= peonCritChance) {
             System.out.println("This attack took a crit");
+            return true;
+        }
+        return false;
+    }
+    public boolean poison(Enemy enemy){
+        Random random = new Random();
+        int enemyPoisonChance = enemy.getSkillChance();
+        if (random.nextInt(100) + 1 <= enemyPoisonChance) {
+            System.out.println("This attack deal a poison");
             return true;
         }
         return false;

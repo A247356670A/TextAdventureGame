@@ -6,7 +6,11 @@ public enum EnemyProperty {
     ICED,
     FIRED,
     ROCKED,
-    GHOSTED;
+    GHOSTED,
+    POISONED,
+    WICKED,
+    HEAVYARMORED,
+    ELITE;
 
     EnemyProperty(){
 

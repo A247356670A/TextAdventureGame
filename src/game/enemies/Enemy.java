@@ -14,6 +14,7 @@ public abstract class Enemy extends Peon {
     private int defence;
     private int avoidChance;
     private int critChance;
+    private int skillChance;
     private Map<EquipmentLocation, Item> equipments;
 
     public Enemy(){
@@ -97,5 +98,13 @@ public abstract class Enemy extends Peon {
         System.out.println("Defence: " + this.getDefence());
         System.out.println("AvoidChance: " + this.getAvoidChance());
         System.out.println("CritChance: " + this.getCritChance());
+    }
+
+    public int getSkillChance() {
+        return skillChance;
+    }
+
+    public void setSkillChance(int skillChance) {
+        this.skillChance = skillChance;
     }
 }
