@@ -69,6 +69,7 @@ public class Location {
             System.out.println();
             switch (key) {
                 case '1':
+                    LocationUtility.createRandomMap();
                     Enemy enemy = enemyFactory.generateEnemies(player);
                     new Battle(player, enemy);
                     continue;

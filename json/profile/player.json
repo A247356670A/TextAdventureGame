@@ -1348,4 +1348,22 @@
   "avoidChance": 10,
   "critChance": 10,
   "equipments": {}
+}{
+  "exp": 0,
+  "level": 1,
+  "name": "Default Player",
+  "healthMax": 100,
+  "health": 100,
+  "magicMax": 100,
+  "magic": 100,
+  "strength": 10,
+  "endurance": 10,
+  "agility": 10,
+  "luck": 10,
+  "intelligence": 10,
+  "attack": 20,
+  "defence": 10,
+  "avoidChance": 10,
+  "critChance": 10,
+  "equipments": {}
 }

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class LocationUtility {
     private static Scanner scan = new Scanner(System.in);
+    private static LocationName locationName = new LocationName();
 
     /**
      * 读取键盘输入的字符串，同时限制字符串的长度
@@ -71,6 +72,17 @@ public class LocationUtility {
             }
         }
         return c;
+    }
+
+    /**
+     * 创造随机的地图名字
+     */
+    public static void createRandomMap(){
+        locationName.setRiskLevel();
+        locationName.setLandscape();
+        String risk = locationName.riskLevel.get((int)(Math.random() * 40));
+        String landscape = locationName.landscape.get((int)(Math.random() * 30));
+        System.out.println("---------------You enter the " + risk +" " + landscape + " " + "area-----------------");
     }
 
 }
