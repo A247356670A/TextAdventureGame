@@ -85,4 +85,38 @@ public class LocationUtility {
         System.out.println("---------------You enter the " + risk +" " + landscape + " " + "area-----------------");
     }
 
+    /**
+     * 根据危险等级调整遇怪的概率
+     */
+    public static void inToBattle(){
+        locationName.setRiskLevel();
+        locationName.setLandscape();
+        String risk = locationName.riskLevel.get((int)(Math.random() * 40));
+        String landscape = locationName.landscape.get((int)(Math.random() * 30));
+        System.out.println("---------------You enter the " + risk +" " + landscape + " " + "area-----------------");
+        if(risk.equals("Safe")){
+            if(((int)(Math.random() * 100)) >= 80 ){
+                //遇怪： 百分之20
+            }
+        }
+        if(risk.equals("Neutral")){
+            if(((int)(Math.random() * 100)) >= 50 ){
+                //遇怪： 百分之50
+            }
+        }
+        if(risk.equals("Disturbed")){
+            if(((int)(Math.random() * 100)) >= 30){
+                //遇怪：百分之百
+            }
+        }
+        if(risk.equals("Dangerous")){
+            //遇怪：百分百
+        }
+        //peaceful 不遇怪
+
+        if(landscape.equals("Camp")){
+            //回复一定量的体力
+        }
+    }
+
 }
