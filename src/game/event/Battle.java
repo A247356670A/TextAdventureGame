@@ -28,6 +28,7 @@ public class Battle {
 
             switch (key) {
                 case '1':
+                    System.out.println("You choose to Attack " + enemy.getName());
                     attack(player, enemy);
                     if (player.getHealth() <= 0) {
                         death(enemy);
@@ -41,6 +42,7 @@ public class Battle {
                     }
                     continue;
                 case '2':
+                    System.out.println("You choose to Defence.");
                     defence(player, enemy);
                     if (player.getHealth() <= 0) {
                         death(enemy);
@@ -55,6 +57,7 @@ public class Battle {
 
                     continue;
                 case '3':
+                    System.out.println("You choose to inspect");
                     boolean inspectFlag = true;
                     while (inspectFlag) {
                         System.out.println("what would you like to inspect?");
@@ -64,22 +67,27 @@ public class Battle {
                         char target = LocationUtility.readMapSelection();
                         switch (target) {
                             case '1':
+                                System.out.println("You choose to Check " + player.getName());
                                 player.view();
                                 continue;
                             case '2':
+                                System.out.println("You choose to Check " + enemy.getName());
                                 enemy.view();
                                 continue;
                             case '3':
+                                System.out.println("You choose to leave.");
                                 inspectFlag = false;
                                 break;
                         }
                     }
                     continue;
                 case '4':
+                    System.out.println("You choose to Escape.");
                     if (escapeFlag){
                         System.out.print("Do you want to Escape? (Y/N):");
                         char confirm = LocationUtility.readConfirmSelection();
                         if (confirm == 'Y') {
+                            System.out.println("You choose YES.");
                             Random random = new Random();
 
                             int luck = 50 + player.getLuck() - enemy.getSkillChance();
@@ -93,6 +101,8 @@ public class Battle {
                                 escapeFlag = false;
                             }
 
+                        }else {
+                            System.out.println("You don’t want to be a coward. You clung to your weapon and returned to the fight.");
                         }
                         break;
                     }else {

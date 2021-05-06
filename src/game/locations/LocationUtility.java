@@ -38,12 +38,15 @@ public class LocationUtility {
         char c;
         for(; ;){
             String str = readKeyBoard(1, false);
-            c = str.charAt(0);
-            if (c != '1' && c != '2' && c != '3' && c != '4' && c != '5') {
-                System.out.println("Bad input, please retype: ");
-            }else{
-                break;
+            if (str.length() != 0){
+                c = str.charAt(0);
+                if (c != '1' && c != '2' && c != '3' && c != '4' && c != '5') {
+                    System.out.println("Bad input, please retype: ");
+                }else{
+                    break;
+                }
             }
+
         }
         return c;
     }
@@ -63,12 +66,15 @@ public class LocationUtility {
         char c;
         for (; ; ) {
             String str = readKeyBoard(1, false).toUpperCase();
-            c = str.charAt(0);
-            if (c == 'Y' || c == 'N') {
-                break;
-            } else {
-                System.out.print("Bad input, please retype: ");
+            if (str.length() != 0){
+                c = str.charAt(0);
+                if (c == 'Y' || c == 'N' || c == '1' || c == '2') {
+                    break;
+                } else {
+                    System.out.print("Bad input, please retype: ");
+                }
             }
+
         }
         return c;
     }

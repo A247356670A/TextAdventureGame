@@ -41,6 +41,7 @@ public class EnemyFactoryTest {
         Player player = new Player();
         Enemy slime = enemyFactory.generateEnemies(player);
         slime.view();
+
         int enemyDamage = slime.getAttack() - player.getDefence();
         System.out.println(enemyDamage);
         if (enemyDamage <= 0){
