@@ -88,13 +88,31 @@ public class LocationUtility {
         locationName.setLandscape();
         String risk = locationName.riskLevel.get((int)(Math.random() * 40));
         String landscape = locationName.landscape.get((int)(Math.random() * 30));
-        System.out.println("---------------You enter the " + risk +" " + landscape + " " + "area-----------------");
+        if(landscape.equals("Camp")){
+            System.out.println("---------------You enter the Camp area-----------------");
+        }else {
+            System.out.println("---------------You enter the " + risk +" " + landscape + " " + "area-----------------");
+        }
+
     }
 
+    public static int mapEvent(){
+        if (inToCamp()){
+            System.out.println("---------------You enter the Camp area-----------------");
+            return 2;
+        }else {
+            if (inToBattle()){
+                return 1;
+
+            }
+            return 0;
+        }
+
+    }
     /**
      * 根据危险等级调整遇怪的概率
      */
-    public static void inToBattle(){
+    public static boolean inToBattle(){
         locationName.setRiskLevel();
         locationName.setLandscape();
         String risk = locationName.riskLevel.get((int)(Math.random() * 40));
@@ -103,26 +121,39 @@ public class LocationUtility {
         if(risk.equals("Safe")){
             if(((int)(Math.random() * 100)) >= 80 ){
                 //遇怪： 百分之20
+                return true;
             }
         }
         if(risk.equals("Neutral")){
             if(((int)(Math.random() * 100)) >= 50 ){
                 //遇怪： 百分之50
+                return true;
             }
         }
         if(risk.equals("Disturbed")){
             if(((int)(Math.random() * 100)) >= 30){
                 //遇怪：百分之百
+                return true;
             }
         }
         if(risk.equals("Dangerous")){
             //遇怪：百分百
+            return true;
         }
         //peaceful 不遇怪
-
+        return false;
+    }
+    public static boolean inToCamp(){
+        locationName.setRiskLevel();
+        locationName.setLandscape();
+        String risk = locationName.riskLevel.get((int)(Math.random() * 40));
+        String landscape = locationName.landscape.get((int)(Math.random() * 30));
         if(landscape.equals("Camp")){
+
+            return true;
             //回复一定量的体力
         }
+        return false;
     }
 
 }

@@ -84,9 +84,21 @@ public class Location {
                 case '1':
                     //前进是否要加事件？
                     System.out.println("You choose to Go ahead");
-                    LocationUtility.createRandomMap();
-                    Enemy enemy = enemyFactory.generateEnemies(player);
-                    new Battle(player, enemy);
+//                    LocationUtility.createRandomMap();
+                    if (LocationUtility.inToCamp()){
+                        System.out.println("---------------You enter the Camp area-----------------");
+                        System.out.println("You are safe, for now.");
+                    }else {
+                        if (LocationUtility.inToBattle()){
+                            Enemy enemy = enemyFactory.generateEnemies(player);
+                            new Battle(player, enemy);
+
+                        }else {
+                            System.out.println("nothing happens");
+                        }
+
+                    }
+
                     continue;
                 case '2':
                     //探索？？
