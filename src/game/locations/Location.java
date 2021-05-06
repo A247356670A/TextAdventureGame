@@ -69,7 +69,6 @@ public class Location {
             System.out.println();
             switch (key) {
                 case '1':
-                    //前进是否要加事件？
                     Enemy enemy = enemyFactory.generateEnemies(player);
                     new Battle(player, enemy);
                     continue;
