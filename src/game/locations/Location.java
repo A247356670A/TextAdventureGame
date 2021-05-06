@@ -84,6 +84,7 @@ public class Location {
                 case '1':
                     //前进是否要加事件？
                     System.out.println("You choose to Go ahead");
+                    LocationUtility.createRandomMap();
                     Enemy enemy = enemyFactory.generateEnemies(player);
                     new Battle(player, enemy);
                     continue;
