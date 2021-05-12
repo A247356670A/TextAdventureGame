@@ -48,8 +48,9 @@ public class GameLauncherTest {
 
     @Test
     public void main() {
+
         Location location = new Location();
-        Player player = new Player();
+        Player player = new Player("Default Player");
 
 
 //        ByteArrayInputStream in = new ByteArrayInputStream("2\n1\n".getBytes());

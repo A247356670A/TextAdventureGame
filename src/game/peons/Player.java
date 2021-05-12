@@ -17,7 +17,8 @@ public class Player extends Peon {
     private Location location;
     private static final HashMap<Integer, List<Integer>> characterLevels = new HashMap();
 
-    public Player() {
+    public Player(String name) {
+        this.setName(name);
         loadCharacterLevels();
         this.exp = 0;
         this.level = 1;
@@ -25,11 +26,11 @@ public class Player extends Peon {
         this.setMagic(100);
         this.setHealthMax(100);
         this.setHealth(100);
-        this.setStrength(10);
-        this.setEndurance(10);
-        this.setAgility(10);
-        this.setLuck(10);
-        this.setIntelligence(10);
+        this.setStrength(8);
+        this.setEndurance(8);
+        this.setAgility(8);
+        this.setLuck(8);
+        this.setIntelligence(8);
         saveToJSONFile();
 
     }
@@ -79,6 +80,7 @@ public class Player extends Peon {
 //                System.out.println(b);
             }
         } catch (Exception e) {
+            System.err.println("There is an error when load: \"json/db/characterLevels.json\"");
             e.printStackTrace();
         }
 
@@ -89,9 +91,10 @@ public class Player extends Peon {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        try (FileWriter fw = new FileWriter("json/profile/player.json", true)) {
+        try (FileWriter fw = new FileWriter("json/profile/player.json", false)) {
             gson.toJson(this, fw);
         } catch (Exception e) {
+            System.err.println("There is an error when load: \"json/profile/player.json\"");
             e.printStackTrace();
         }
 
@@ -233,6 +236,7 @@ public class Player extends Peon {
                 this.healAll();
                 this.magicRecoverAll();
                 this.view();
+                saveToJSONFile();
             }
 
 
