@@ -14,8 +14,6 @@ import java.util.Random;
 
 public class EnemyFactory {
 
-//    private static final HashMap<String, List<Integer>> enemyProperties = new HashMap();
-
     public EnemyFactory() {
     }
 
@@ -50,6 +48,7 @@ public class EnemyFactory {
 //                System.out.println(b);
             }
         } catch (Exception e) {
+            System.err.println("There is an error when load: \"" + file.getPath() + "\"");
             e.printStackTrace();
         }
         return enemyProperties;
@@ -64,7 +63,6 @@ public class EnemyFactory {
             List<JsonObject> list = gson.fromJson(jsonReader, List.class);
             for (Object b : list) {
                 String[] tokens = b.toString().split("=");
-//                System.out.println(b);
                 String enemyName = tokens[1].substring(0, tokens[1].length() - 6);
                 int rate = removeLastX(tokens[2], 3);
                 enemies.put(enemyName, rate);
@@ -72,6 +70,7 @@ public class EnemyFactory {
 //                System.out.println(b);
             }
         } catch (Exception e) {
+            System.err.println("There is an error when load: \"json/db/enemies.json\"");
             e.printStackTrace();
         }
         return enemies;

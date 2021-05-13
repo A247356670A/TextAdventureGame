@@ -151,7 +151,7 @@ public class Battle {
 //        printOutSleep(800);
         System.out.println("You get " + enemy.getExpGain() + " exp from this battle.");
         player.setExp(player.getExp() + enemy.getExpGain());
-        player.saveToJSONFile();
+        player.saveToJSONFile("json/profile/player.json");
     }
 
     private void printOutSleep(int sleepLength){

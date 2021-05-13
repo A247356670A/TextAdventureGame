@@ -19,7 +19,7 @@ public class Player extends Peon {
 
     public Player(String name) {
         this.setName(name);
-        loadCharacterLevels();
+        loadCharacterLevels("json/db/characterLevels.json");
         this.exp = 0;
         this.level = 1;
         this.setMagicMax(100);
@@ -31,12 +31,12 @@ public class Player extends Peon {
         this.setAgility(8);
         this.setLuck(8);
         this.setIntelligence(8);
-        saveToJSONFile();
+        saveToJSONFile("json/profile/player.json");
 
     }
 
     public Player(String name, int exp, int level, int healthMax, int health, int magicMax, int magic, int strength, int endurance, int agility, int luck, int intelligence) {
-        loadCharacterLevels();
+        loadCharacterLevels("json/db/characterLevels.json");
         this.setName(name);
         this.exp = exp;
         this.level = level;
@@ -47,7 +47,7 @@ public class Player extends Peon {
         this.setAgility(agility);
         this.setLuck(luck);
         this.setIntelligence(intelligence);
-        saveToJSONFile();
+        saveToJSONFile("json/profile/player.json");
     }
 
     private static int removeLastX(String str, int x) {
@@ -57,11 +57,11 @@ public class Player extends Peon {
         return Integer.parseInt(str);
     }
 
-    public void loadCharacterLevels() {
+    public void loadCharacterLevels(String fileName) {
         Gson gson = new Gson();
         JsonReader jsonReader;
         try {
-            jsonReader = new JsonReader(new FileReader("json/db/characterLevels.json"));
+            jsonReader = new JsonReader(new FileReader(fileName));
             List<JsonObject> list = gson.fromJson(jsonReader, List.class);
             for (Object b : list) {
                 String[] tokens = b.toString().split("=");// 1: level; 2: exp; 3: healthMax; 4: magicMax; 5: strength; 6: endurance; 7: agility 8: luck; 9: intelligence.
@@ -86,12 +86,12 @@ public class Player extends Peon {
 
     }
 
-    public void saveToJSONFile() {
+    public void saveToJSONFile(String fileName) {
         File file = new File("json/profile/player.json");
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        try (FileWriter fw = new FileWriter("json/profile/player.json", false)) {
+        try (FileWriter fw = new FileWriter(fileName, false)) {
             gson.toJson(this, fw);
         } catch (Exception e) {
             System.err.println("There is an error when load: \"json/profile/player.json\"");
@@ -236,7 +236,7 @@ public class Player extends Peon {
                 this.healAll();
                 this.magicRecoverAll();
                 this.view();
-                saveToJSONFile();
+                saveToJSONFile("json/profile/player.json");
             }
 
 
