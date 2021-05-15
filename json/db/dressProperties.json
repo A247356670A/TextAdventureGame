@@ -1,0 +1,88 @@
+[
+ /* DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
+  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
+  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
+  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!*/
+
+  {
+    "itemProperty": "NORMAL",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 12
+  },
+  {
+    "itemProperty": "CHEST",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 12
+  },
+  {
+    "itemProperty": "LEFT ARM",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 12
+  },
+  {
+    "itemProperty": "RIGHT ARM",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 12
+  },
+  {
+    "itemProperty": "LEFT HAND",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 12
+  },
+  {
+    "itemProperty": "RIGHT HAND",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 12
+  },
+  {
+    "itemProperty": "BOTH HANDS",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 4
+  },
+  {
+    "itemProperty": "LEGS",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 12
+  },
+  {
+    "itemProperty": "FEET",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 12
+  }
+]

@@ -1,0 +1,34 @@
+[
+  /* DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
+  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
+  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
+  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!*/
+
+  {
+    "itemProperty": "LEFT HAND",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 40
+  },
+  {
+    "itemProperty": "RIGHT HAND",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 40
+  },
+  {
+    "itemProperty": "BOTH HANDS",
+    "health": 20,
+    "attack": 6,
+    "defence": 5,
+    "avoidChance": 1,
+    "critChance": 1,
+    "rate": 20
+  }
+]
