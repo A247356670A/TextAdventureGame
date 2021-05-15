@@ -1,9 +1,12 @@
 package game.locations;
 
+import game.GameLauncher;
 import game.enemies.Enemy;
 import game.enemies.EnemyFactory;
 import game.event.Battle;
 import game.peons.Player;
+
+
 
 public class Location {
     private boolean mainMapFlag;
@@ -19,6 +22,7 @@ public class Location {
             System.out.println("        1. StormWind City");
             System.out.println("        2. Battle Map");
             System.out.println("        3. Boss Room");
+            System.out.println("        4. Quit Game");
             char key = LocationUtility.readMapSelection();
             System.out.println();
             switch (key) {
@@ -61,10 +65,14 @@ public class Location {
                             mainMapFlag = false;
                         }
                     }
+                case '4':
+                    mainMapFlag = false;
+                    break;
+
             }
         } while (mainMapFlag);
 
-        bossRoom(player);
+//        bossRoom(player);
 
     }
 

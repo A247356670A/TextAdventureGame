@@ -13,7 +13,7 @@ public class EnemyFactoryTest {
     @Test
     public void generateEnemies() {
         EnemyFactory enemyFactory = new EnemyFactory();
-        Player player = new Player();
+        Player player = new Player("Default Player");
         Enemy slime = enemyFactory.generateEnemies(player);
         System.out.println(slime.getName());
         System.out.println(slime.getHealthMax());
@@ -38,7 +38,7 @@ public class EnemyFactoryTest {
     public void loadEnemyProperties() {
         Random rand = new Random();
         EnemyFactory enemyFactory = new EnemyFactory();
-        Player player = new Player();
+        Player player = new Player("Default Player");
         Enemy slime = enemyFactory.generateEnemies(player);
         slime.view();
 
@@ -59,7 +59,7 @@ public class EnemyFactoryTest {
     public void loadEnemies() {
         Random rand = new Random();
         EnemyFactory enemyFactory = new EnemyFactory();
-        Player player = new Player();
+        Player player = new Player("Default Player");
         File file = new File("json/db/enemies.json");
         enemyFactory.loadEnemies(file);
     }

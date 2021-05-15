@@ -10,7 +10,7 @@ public class LocationUtility {
      * 读取键盘输入的字符串，同时限制字符串的长度
      */
 
-    private static String readKeyBoard(int limit, boolean blankReturn ){
+    public static String readKeyBoard(int limit, boolean blankReturn ){
         String line = "";
 
         while(scan.hasNextLine()){
@@ -22,10 +22,11 @@ public class LocationUtility {
                     continue;
                 }
             }
-            if(line.length() < 1 || line.length() > limit){
+            if(line.length() > limit){
                 System.out.println("Bad input, your input length should less than " + limit + ", please retype: ");
                 continue;
             }
+
             break;
         }
         return line;

@@ -8,7 +8,7 @@ import java.io.File;
 import static org.junit.Assert.*;
 
 public class PlayerTest {
-    Player player = new Player();
+    Player player = new Player("Default Player");
 
     @Before
     public void createPlayer(){

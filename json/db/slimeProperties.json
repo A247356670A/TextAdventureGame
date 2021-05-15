@@ -2,7 +2,7 @@
   {
     "enemyProperty": "NORMAL",
     "basicHealth": 20,
-    "basicAttack": 6,
+    "basicAttack": 10,
     "basicDefence": 5,
     "basicAvoidChance": 1,
     "basicCritChance": 1,
@@ -13,7 +13,7 @@
   {
     "enemyProperty": "KAWAI",
     "basicHealth": 20,
-    "basicAttack": 6,
+    "basicAttack": 10,
     "basicDefence": 5,
     "basicAvoidChance": 11,
     "basicCritChance": 1,
@@ -24,7 +24,7 @@
   {
     "enemyProperty": "ICED",
     "basicHealth": 20,
-    "basicAttack": 6,
+    "basicAttack": 10,
     "basicDefence": 5,
     "basicAvoidChance": 1,
     "basicCritChance": 11,
@@ -36,7 +36,7 @@
   {
     "enemyProperty": "FIRED",
     "basicHealth": 20,
-    "basicAttack": 12,
+    "basicAttack": 15,
     "basicDefence": 5,
     "basicAvoidChance": 1,
     "basicCritChance": 1,
@@ -48,7 +48,7 @@
   {
     "enemyProperty": "ROCKED",
     "basicHealth": 25,
-    "basicAttack": 6,
+    "basicAttack": 10,
     "basicDefence": 10,
     "basicAvoidChance": 1,
     "basicCritChance": 1,
@@ -60,7 +60,7 @@
   {
     "enemyProperty": "GHOSTED",
     "basicHealth": 25,
-    "basicAttack": 10,
+    "basicAttack": 18,
     "basicDefence": 10,
     "basicAvoidChance": 6,
     "basicCritChance": 6,
