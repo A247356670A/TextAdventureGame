@@ -22,6 +22,12 @@ DISCUSSIONS
 2.	The group had a discussion about what we were going to achieve: How to start and how to end the game.
 3.	The group discussed the problems that may arise during the project: Majorly time limit
 
+Work divided:
+Junxian Chen: Battle event and tester
+Yinzhao Chen: Map structure and map style
+Rui Hang: Game background and Talk Events
+Yuwen Wei: Items System build
+
 NEXT MEETING
 
 Plan Date: 12th April 2021
