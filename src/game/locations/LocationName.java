@@ -2,6 +2,7 @@ package game.locations;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+// The thesaurus of map name. A battle name include the heading(represent the risk level) and Landscape.
 
 public class LocationName {
 
@@ -113,7 +114,7 @@ public class LocationName {
         riskLevel.addAll(Arrays.asList(setDangerous()));
         riskLevel.addAll(Arrays.asList(setNeutral()));
         //Total amount:40, Type:5
-        //RiskLevel: Safe and peaceful: 遇怪率低（或0）， Neutral: 遇怪率中， Disturbed and Dangerous: 遇怪率高
+        //RiskLevel: Safe and peaceful: low battle probability， Neutral: medium probability， Disturbed and Dangerous: high battle probability
     }
 
     public void setLandscape(){
@@ -130,6 +131,6 @@ public class LocationName {
         landscape.addAll(Arrays.asList(setDesert()));
         landscape.addAll(Arrays.asList(setGrassland()));
         //Total: 30, Type: 11
-        //Camp: 立刻恢复玩家一定量的HP
+        //Camp: increase HP
     }
 }

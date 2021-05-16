@@ -1,13 +1,14 @@
 package game.locations;
 
 import java.util.Scanner;
+//Location Utility is the tool class for the map contribution
 
 public class LocationUtility {
     private static Scanner scan = new Scanner(System.in);
     private static LocationName locationName = new LocationName();
 
     /**
-     * 读取键盘输入的字符串，同时限制字符串的长度
+     * Read the string from keyboard, as well as limit the length of input string
      */
 
     public static String readKeyBoard(int limit, boolean blankReturn ){
@@ -33,7 +34,7 @@ public class LocationUtility {
     }
 
     /**
-     * 用于地图界面选择（暂定3个选项），非1,2,3,4,5的选项返回异常
+     * Select map by use '1' '2' '3' '4''5', other character will throw the "Bad input" message
      */
 
     public static char readMapSelection(){
@@ -54,7 +55,7 @@ public class LocationUtility {
     }
 
     /**
-     * 从键盘读取字符，如果用户未输入字符则直接default
+     * Read the character from keyboard. If there is null, default
      */
     public static char readChar(char defaultValue) {
         String str = readKeyBoard(1, true);
@@ -62,7 +63,7 @@ public class LocationUtility {
     }
 
     /**
-     用于确认选择的输入。该方法从键盘读取‘Y’或’N’，并将其作为方法的返回值。
+     To double check whether player want to select this choice, shows "Y/N"
      */
     public static char readConfirmSelection() {
         char c;
@@ -82,7 +83,7 @@ public class LocationUtility {
     }
 
     /**
-     * 创造随机的地图名字
+     * Creat random map name
      */
     public static void createRandomMap(){
         locationName.setRiskLevel();
@@ -111,7 +112,7 @@ public class LocationUtility {
 
     }
     /**
-     * 根据危险等级调整遇怪的概率
+     * Control the battle probability in the battle map by different map name`s heading.
      */
     public static boolean inToBattle(){
         locationName.setRiskLevel();
@@ -121,27 +122,27 @@ public class LocationUtility {
         System.out.println("---------------You enter the " + risk +" " + landscape + " " + "area-----------------");
         if(risk.equals("Safe")){
             if(((int)(Math.random() * 100)) >= 80 ){
-                //遇怪： 百分之20
+                //In the map with heading "Safe", battle probability 20%
                 return true;
             }
         }
         if(risk.equals("Neutral")){
             if(((int)(Math.random() * 100)) >= 50 ){
-                //遇怪： 百分之50
+                //In the map with heading "Neutral", battle probability 50%
                 return true;
             }
         }
         if(risk.equals("Disturbed")){
             if(((int)(Math.random() * 100)) >= 30){
-                //遇怪：百分之百
+                //In the map with heading "Neutral", battle probability 70%
                 return true;
             }
         }
         if(risk.equals("Dangerous")){
-            //遇怪：百分百
+            //In the map with heading "Neutral", battle probability 100%
             return true;
         }
-        //peaceful 不遇怪
+        //peaceful area , no battle
         return false;
     }
     public static boolean inToCamp(){
