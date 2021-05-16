@@ -15,12 +15,15 @@ public abstract class Enemy extends Peon {
     private int avoidChance;
     private int critChance;
     private int skillChance;
+    private EnemyProperty enemyProperty;
     private Map<EquipmentLocation, Item> equipments;
 
     public Enemy(){
 
     }
-
+    public EnemyProperty getEnemyProperty() {
+        return enemyProperty;
+    }
     public int getExpGain() {
         return expGain;
     }

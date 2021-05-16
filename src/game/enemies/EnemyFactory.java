@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
+import static game.locations.LocationUtility.readKeyBoard;
+
 public class EnemyFactory {
 
     public EnemyFactory() {
@@ -23,7 +25,39 @@ public class EnemyFactory {
         }
         return Integer.parseInt(str);
     }
-
+    private static String removeLastXS(String str, int x) {
+        if (str != null) {
+            str = str.substring(0, str.length() - x);
+        }
+        return str;
+    }
+    public Enemy loadBoss() {
+        Gson gson = new Gson();
+        JsonReader jsonReader;
+        try {
+            jsonReader = new JsonReader(new FileReader("json/db/bossProperty.json"));
+            JsonObject boss = gson.fromJson(jsonReader, JsonObject.class);
+            String[] tokens = boss.toString().split(":");
+            int exp = removeLastX(tokens[1], 8);
+            int level  = removeLastX(tokens[2], 7);
+            String name = removeLastXS(tokens[3], 12);
+            name = name.replaceAll("\"","");
+            int healthMax = removeLastX(tokens[4], 9);
+            int health = removeLastX(tokens[5], 11);
+            int magicMax = removeLastX(tokens[6], 8);
+            int magic = removeLastX(tokens[7], 9);
+            int attack = removeLastX(tokens[8], 10);
+            int defence = removeLastX(tokens[9], 14);
+            int avoidChance = removeLastX(tokens[10], 13);
+            int critChance = removeLastX(tokens[11], 14);
+            int skillChance = removeLastX(tokens[12], 1);
+            return new Boss(name,healthMax,magicMax,attack,defence,avoidChance,critChance,exp, skillChance);
+        } catch (Exception e) {
+            System.err.println("There is an error when load: \"json/db/bossProperty.json\"");
+            e.printStackTrace();
+            return null;
+        }
+    }
     public HashMap<String, List<Integer>> loadEnemyProperties(File file) {
         HashMap<String, List<Integer>> enemyProperties = new HashMap();
         Gson gson = new Gson();

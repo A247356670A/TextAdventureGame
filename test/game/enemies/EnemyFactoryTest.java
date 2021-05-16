@@ -63,4 +63,27 @@ public class EnemyFactoryTest {
         File file = new File("json/db/enemies.json");
         enemyFactory.loadEnemies(file);
     }
+
+    @Test
+    public void loadBoss() {
+        EnemyFactory enemyFactory = new EnemyFactory();
+        Enemy boss = enemyFactory.loadBoss();
+        boss.view();
+    }
+
+    @Test
+    public void testLoadEnemyProperties() {
+    }
+
+    @Test
+    public void testLoadEnemies() {
+    }
+
+    @Test
+    public void testGenerateEnemies1() {
+    }
+
+    @Test
+    public void generateBoss() {
+    }
 }

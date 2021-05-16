@@ -1,6 +1,7 @@
 package game.locations;
 
 import game.GameLauncher;
+import game.enemies.Boss;
 import game.enemies.Enemy;
 import game.enemies.EnemyFactory;
 import game.event.Battle;
@@ -63,8 +64,13 @@ public class Location {
                         char confirmBoss2 = LocationUtility.readConfirmSelection();
                         if (confirmBoss2 == 'Y') {
                             System.out.println("You choose to enter Boss Room");
-                            mainMapFlag = false;
+                            Enemy boss = new EnemyFactory().loadBoss();
+                            new Battle(player,boss);
+                        }else {
+                            break;
                         }
+                    }else {
+                        continue;
                     }
                 case '4':
                     mainMapFlag = false;

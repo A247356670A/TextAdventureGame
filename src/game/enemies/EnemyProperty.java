@@ -10,7 +10,8 @@ public enum EnemyProperty {
     POISONED,
     WICKED,
     HEAVYARMORED,
-    ELITE;
+    ELITE,
+    BOSS;
 
     EnemyProperty(){
 
