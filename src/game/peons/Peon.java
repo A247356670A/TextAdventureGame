@@ -6,6 +6,9 @@ import game.items.Item;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Peon is a basic class for the extend by all player, enemy and NPC in game.
+ */
 public abstract class Peon {
     private String name;
     private int healthMax;
@@ -24,7 +27,7 @@ public abstract class Peon {
     private Map<EquipmentLocation, Item> equipments;
 
     public Peon() {
-        this("Default Player", 100, 100, new HashMap<>());
+        this("Default", 100, 100, new HashMap<>());
     }
 
     public Peon(String name, int healthMax, int health, Map<EquipmentLocation, Item> equipments) {

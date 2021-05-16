@@ -20,7 +20,8 @@ public class Battle {
     public Battle(Player player, Enemy enemy) {
         battleFlag = true;
         escapeFlag = true;
-        while (battleFlag) {
+        if(battleFlag)
+        do {
 //            printOutSleep(800);
             System.out.println("What would you do?");
             System.out.println("1. Attack");
@@ -36,7 +37,14 @@ public class Battle {
                     System.out.println("You choose to Attack " + enemy.getName());
                     attack(player, enemy);
                     if (player.getHealth() <= 0) {
-                        death(enemy);
+                        if (death(enemy, player)) {
+                            String str = player.getName();
+                            player = new Player(str);
+                            battleFlag = false;
+
+                            break;
+                        }
+                        Location.mainMapFlag = false;
                         battleFlag = false;
                         break;
                     }
@@ -51,7 +59,13 @@ public class Battle {
                     System.out.println("You choose to Defence.");
                     defence(player, enemy);
                     if (player.getHealth() <= 0) {
-                        death(enemy);
+                        if (death(enemy, player)) {
+                            String str = player.getName();
+                            player = new Player(str);
+                            battleFlag = false;
+                            break;
+                        }
+                        Location.mainMapFlag = false;
                         battleFlag = false;
                         break;
                     }
@@ -95,7 +109,7 @@ public class Battle {
                 case '4':
 //                    printOutSleep(800);
                     System.out.println("You choose to Escape.");
-                    if (escapeFlag){
+                    if (escapeFlag) {
 //                        printOutSleep(800);
                         System.out.print("Do you want to Escape? (Y/N):");
                         char confirm = LocationUtility.readConfirmSelection();
@@ -106,43 +120,42 @@ public class Battle {
 
                             int luck = 50 + player.getLuck() - enemy.getSkillChance();
                             int result = random.nextInt(100);
-                            if (result < luck){
+                            if (result < luck) {
 //                                printOutSleep(800);
                                 System.out.println("You are luck to escape from that battle.");
                                 battleFlag = false;
 
-                            }else {
+                            } else {
 //                                printOutSleep(800);
                                 System.out.println("You are failed to escape from this battle.");
                                 escapeFlag = false;
                             }
 
-                        }else {
+                        } else {
 //                            printOutSleep(800);
                             System.out.println("You don’t want to be a coward. You clung to your weapon and returned to the fight.");
                         }
                         break;
-                    }else {
+                    } else {
 //                        printOutSleep(800);
                         System.out.println("You can't escape anymore.");
                     }
 
             }
-        }
+        } while (battleFlag);
     }
 
-    public void death(Enemy enemy) {
+    public boolean death(Enemy enemy,Player player) {
 //        printOutSleep(800);
         System.out.println("Unfortunately you dead when you flight with " + enemy.getName());
 //        printOutSleep(800);
         System.out.print("Do you want to restart this game? (Y/N):");
         char confirm = LocationUtility.readConfirmSelection();
         if (confirm == 'Y') {
-            Location location = new Location();
-            String str = readKeyBoard(10, false);
-            Player player = new Player(str);
-            location.mainMap(player);
+            return true;
+
         }
+        return false;
     }
 
     public void win(Player player, Enemy enemy) {

@@ -1,32 +1,34 @@
 package game.peons;
 
+import game.GameLauncher;
+import game.locations.LocationUtility;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.DataInputStream;
 import java.io.File;
 
 import static org.junit.Assert.*;
 
 public class PlayerTest {
-    Player player = new Player("Default Player");
-
-    @Before
-    public void createPlayer(){
+    Player player = new Player("testPlayer");
+    @Test
+    public void saveToJSONFile() {
+        assertEquals("testPlayer",player.getName());
+        assertEquals(100,player.getHealth());
+        assertEquals(8,player.getStrength());
+        player.setName("newTestPlayer");
+        player.setStrength(3);
+        player.saveToJSONFile("json/profile/player.json");
+        Player newTestPlayer = GameLauncher.loadPlayer();
+        assertEquals("newTestPlayer",newTestPlayer.getName());
+        assertEquals(3,newTestPlayer.getStrength());
 
     }
     @Test
     public void loadCharacterLevels() {
-        // Save it to the specified file.
-//        File file = new File("json/db/characterLevels.json");
-
-        // Ensure that there is nothing there right now:
-//		file.delete();
-
-
-//        player.loadCharacterLevels();
-        // Load it from the specified file.
-        // Delete file after test
-//		file.delete();
+        player.loadCharacterLevels("json/db/characterLevels.json");
     }
 
     @Test
@@ -36,157 +38,72 @@ public class PlayerTest {
 
     @Test
     public void getExp() {
-        System.out.println(player.getExp());
+        assertEquals(0,player.getExp());
     }
 
     @Test
     public void setExp() {
+        player.setExp(4);
+        assertEquals(4,player.getExp());
     }
 
     @Test
     public void getLevel() {
-        System.out.println(player.getLevel());
+        assertEquals(1,player.getLevel());
+
     }
 
     @Test
     public void setLevel() {
+        player.setLevel(10);
+        assertEquals(10,player.getLevel());
+    }
+    private void testUserInput(String in) {
+        System.setIn(new ByteArrayInputStream(in.getBytes()));
     }
 
     @Test
     public void levelUp() {
+//        player.setExp(101);
+//        this.testUserInput("1\n");
+//        new Thread(() -> {
+//            player.levelUp();
+//        }).start();
 
-    }
-    @Test
-    public void getHealthMax() {
-        System.out.println(player.getHealthMax());
-    }
 
-    @Test
-    public void setHealthMax() {
-    }
 
-    @Test
-    public void getHealth() {
-        System.out.println(player.getHealth());
     }
 
     @Test
-    public void setHealth() {
+    public void healAll() {
+        player.setHealth(1);
+        assertEquals(1,player.getHealth());
+        player.healAll();
+        assertEquals(player.getHealthMax(),player.getHealth());
     }
 
     @Test
-    public void getMagicMax() {
-        System.out.println(player.getMagicMax());
+    public void heal() {
+        player.setHealth(1);
+        assertEquals(1,player.getHealth());
+        player.heal(9);
+        assertEquals(10,player.getHealth());
     }
 
     @Test
-    public void setMagicMax() {
+    public void magicRecoverAll() {
+        player.setMagic(1);
+        assertEquals(1,player.getMagic());
+        player.magicRecoverAll();
+        assertEquals(player.getMagicMax(),player.getMagic());
     }
 
     @Test
-    public void getMagic() {
-        System.out.println(player.getMagic());
+    public void magicRecover() {
+        player.setMagic(1);
+        assertEquals(1,player.getMagic());
+        player.magicRecover(9);
+        assertEquals(10,player.getMagic());
     }
 
-    @Test
-    public void setMagic() {
-    }
-
-    @Test
-    public void getStrength() {
-        System.out.println(player.getStrength());
-    }
-
-    @Test
-    public void setStrength() {
-    }
-
-    @Test
-    public void getEndurance() {
-        System.out.println(player.getEndurance());
-    }
-
-    @Test
-    public void setEndurance() {
-    }
-
-    @Test
-    public void getAgility() {
-        System.out.println(player.getAgility());
-    }
-
-    @Test
-    public void setAgility() {
-    }
-
-    @Test
-    public void getLuck() {
-        System.out.println(player.getLuck());
-    }
-
-    @Test
-    public void setLuck() {
-    }
-
-    @Test
-    public void getIntelligence() {
-        System.out.println(player.getIntelligence());
-    }
-
-    @Test
-    public void setIntelligence() {
-    }
-
-    @Test
-    public void getAttack() {
-        System.out.println(player.getAttack());
-    }
-
-    @Test
-    public void setAttack() {
-    }
-
-    @Test
-    public void getDefence() {
-        System.out.println(player.getDefence());
-    }
-
-    @Test
-    public void setDefence() {
-    }
-
-    @Test
-    public void getAvoidChance() {
-        System.out.println(player.getAvoidChance());
-    }
-
-    @Test
-    public void setAvoidChance() {
-    }
-
-    @Test
-    public void getCritChance() {
-        System.out.println(player.getCritChance());
-    }
-
-    @Test
-    public void setCritChance() {
-    }
-
-    @Test
-    public void getEquipments() {
-        System.out.println(player.getEquipments());
-    }
-
-    @Test
-    public void setEquipments() {
-    }
-    @Test
-    public void getName() {
-        System.out.println(player.getName());
-    }
-
-    @Test
-    public void setName() {
-    }
 }

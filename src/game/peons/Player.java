@@ -125,9 +125,10 @@ public class Player extends Peon {
     public void healAll(){
         this.setHealth(this.getHealthMax());
     }
+
     public void heal(int healthPoint){
         if (healthPoint <= this.getHealthMax()){
-            this.setHealth(healthPoint);
+            this.setHealth(healthPoint + this.getHealth());
         }else {
             this.setHealth(this.getHealthMax());
         }
@@ -138,7 +139,7 @@ public class Player extends Peon {
     }
     public void magicRecover(int magicPoint){
         if (magicPoint <= this.getMagicMax()){
-            this.setHealth(magicPoint);
+            this.setMagic(magicPoint + this.getMagic());
         }else {
             this.setMagic(this.getMagicMax());
         }

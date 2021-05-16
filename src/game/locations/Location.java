@@ -9,14 +9,15 @@ import game.peons.Player;
 
 
 public class Location {
-    private boolean mainMapFlag;
-    private boolean battleMapFlag;
-    private boolean bossRoomFlag;
-    private boolean cityFlag;
+    public static boolean mainMapFlag;
+    public boolean battleMapFlag;
+    public boolean bossRoomFlag;
+    public boolean cityFlag;
 
 
     public void mainMap(Player player) {
         mainMapFlag = true;
+        mainLoop:
         do {
             System.out.println("---------------Main Map-----------------");
             System.out.println("        1. StormWind City");
