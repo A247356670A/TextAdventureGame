@@ -1,0 +1,77 @@
+{
+  "Chapter 1": [
+    {
+      "sequence": 1,
+      "name": "Wiseman",
+      "content": "Young man, your father sacrificed himself to protect our homeland..."
+    },
+    {
+      "sequence": 2,
+      "name": "Sun",
+      "content": "How can I find the Wolf Warrior and fulfill my revenge?"
+    },
+    {
+      "sequence": 3,
+      "name": "Wiseman",
+      "content": "well, all I need is Saussure Involucrate where you can find it at "
+    }
+  ],
+  "Chapter 2-1": [
+    {
+      "sequence": 1,
+      "name": "Goblin",
+      "content": "Here comes my trophy today! I will water the elderwood with your blood! It must be delicious!"
+    },
+    {
+      "sequence": 2,
+      "name": "Sun",
+      "content": "Not today! I will take you down and get what I want!"
+    },
+    {
+      "sequence": 3,
+      "name": "Goblin",
+      "content": "Try me then!"
+    }
+  ],
+  "Chapter 2-2": [
+    {
+      "sequence": 1,
+      "name": "Slime",
+      "content": "Seems like you have taken down my Goblin! Today I will use your head to pay homage to him."
+    },
+    {
+      "sequence": 2,
+      "name": "Sun",
+      "content": "The last person who said this is already dead!"
+    }
+  ],
+  "Chapter 2-3": [
+    {
+      "sequence": 1,
+      "name": "Wiseman",
+      "content": " I knew you could get it!"
+    },
+    {
+      "sequence": 2,
+      "name": "Sun",
+      "content": "Don't waste my time, tell me where he is."
+    },
+    {
+      "sequence": 3,
+      "name": "Wise",
+      "content": "well, that is kind of rude, youngblood. The Wolf Warrior is in the dungeon of Abstract mountain. Just be prepared that you cannot come back."
+    }
+  ],
+  "Chapter 3": [
+    {
+      "sequence": 1,
+      "name": "Sun",
+      "content": "Finally, I can avenge my father by myself…"
+    },
+    {
+      "sequence": 2,
+      "name": "Wolf Warrior",
+      "content": "just another corpse to be buried with your father!"
+    }
+  ]
+}
