@@ -12,10 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-//DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
-// DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
-// DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
-
 public class ItemFactory {
     public ItemFactory(){
 
@@ -34,16 +30,17 @@ public class ItemFactory {
             jsonReader = new JsonReader(new FileReader(file));
             List<JsonObject> list = gson.fromJson(jsonReader, List.class);
             for (Object b : list) {
-                String[] tokens = b.toString().split("=");// 1: Property; 2: health; 3: Attack; 4: Defence; 5: AvoidChance; 6: CritChance; 7: ExpGain; 8:rate
+                String[] tokens = b.toString().split("=");
                 String itemProperty = tokens[1].substring(0, tokens[1].length() - 13);
                 int health = removeLastX(tokens[2], 15);
                 int attack = removeLastX(tokens[3], 16);
                 int defence = removeLastX(tokens[4], 20);
                 int avoidChance = removeLastX(tokens[5], 19);
                 int critChance = removeLastX(tokens[6], 15);
-                int rate = removeLastX(tokens[9], 3);
-                List<Integer> properties = Arrays.asList(attack, defence, avoidChance, critChance, rate);
+                int rate = removeLastX(tokens[7], 3);
+                List<Integer> properties = Arrays.asList(health, attack, defence, avoidChance, critChance, rate);
                 itemProperties.put(itemProperty, properties);
+                System.out.println("here");
             }
         } catch (Exception e) {
             e.printStackTrace();

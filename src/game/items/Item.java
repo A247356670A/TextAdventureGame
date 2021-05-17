@@ -4,24 +4,19 @@ import game.enemies.Enemy;
 
 import java.util.Random;
 
-/* DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
-  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
-  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
-  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!*/
-
-public class Item {
+public class Item extends Enemy {
     private final EquipmentLocation equipmentLocation;
-
+    
     public Item(int playerLevel, EquipmentLocation equipmentLocation, int health, int attack, int defence, int avoidChance, int critChance) {
         Random rand = new Random();
         this.equipmentLocation = equipmentLocation;
         int swordHealth =  health + playerLevel * (rand.nextInt(2) + 1);
-//        this.setName(equipmentLocation.name() + "Sword");
-//        this.setHealth(health);
-//        this.setAttack(attack + playerLevel * (rand.nextInt(2) + 1));
-//        this.setDefence(defence + playerLevel * (rand.nextInt(2) + 1));
-//        this.setAvoidChance(avoidChance + playerLevel * (rand.nextInt(2) + 1));
-//        this.setCritChance(critChance + playerLevel * (rand.nextInt(2) + 1));
+        this.setName(equipmentLocation.name());
+        this.setHealth(swordHealth);
+        this.setAttack(attack + playerLevel * (rand.nextInt(2) + 1));
+        this.setDefence(defence + playerLevel * (rand.nextInt(2) + 1));
+        this.setAvoidChance(avoidChance + playerLevel * (rand.nextInt(2) + 1));
+        this.setCritChance(critChance + playerLevel * (rand.nextInt(2) + 1));
     }
 }
 /*package game.items;
