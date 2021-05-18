@@ -5,6 +5,7 @@ import game.enemies.Boss;
 import game.enemies.Enemy;
 import game.enemies.EnemyFactory;
 import game.event.Battle;
+import game.event.Talk;
 import game.peons.Player;
 
 
@@ -14,9 +15,11 @@ public class Location {
     public boolean battleMapFlag;
     public boolean bossRoomFlag;
     public boolean cityFlag;
+    public boolean killSlime = false;
 
 
     public void mainMap(Player player) {
+        new Talk(player,"Background");
         mainMapFlag = true;
         mainLoop:
         do {
@@ -66,6 +69,7 @@ public class Location {
                             System.out.println("You choose to enter Boss Room");
                             Enemy boss = new EnemyFactory().loadBoss();
                             new Battle(player,boss);
+                            new Talk(player,"Chapter 3");
                         }else {
                             break;
                         }
@@ -106,6 +110,12 @@ public class Location {
                     }else {
                         if (LocationUtility.inToBattle()){
                             Enemy enemy = enemyFactory.generateEnemies(player);
+                            if ("GOBLIN".equals(enemy.getName())){
+                                new Talk(player,"Chapter 2-1");
+                            }else {
+                                new Talk(player,"Chapter 2-2");
+                                killSlime = true;
+                            }
                             new Battle(player, enemy);
 
                         }else {
@@ -172,6 +182,11 @@ public class Location {
             switch (key) {
                 case '1':
                     //跟NPC谈话的内容
+                    if (killSlime) {
+                        new Talk(player, "Chapter 2-3");
+                    }else {
+                        new Talk(player, "Chapter 1");
+                    }
                     continue;
                 case '2':
                     //休息的功能
