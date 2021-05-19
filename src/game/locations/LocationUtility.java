@@ -134,12 +134,12 @@ public class LocationUtility {
         }
         if(risk.equals("Disturbed")){
             if(((int)(Math.random() * 100)) >= 30){
-                //In the map with heading "Neutral", battle probability 70%
+                //In the map with heading "Disturbed", battle probability 70%
                 return true;
             }
         }
         if(risk.equals("Dangerous")){
-            //In the map with heading "Neutral", battle probability 100%
+            //In the map with heading "Dangerous", battle probability 100%
             return true;
         }
         //peaceful area , no battle
