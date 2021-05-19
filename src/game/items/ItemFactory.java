@@ -151,12 +151,12 @@ public class ItemFactory {
                 System.out.println("You got a chest dress!");
                 return new Item(playerLevel,EquipmentLocation.CHEST,locationChest.get(0),locationChest.get(1),locationChest.get(2),locationChest.get(3),locationChest.get(4));
             }
-        }else if(result<=3 &&result>2){
+        }else if(result==3){
             if(itemProperties.containsKey("LEFT_ARM")){
                 System.out.println("You got a left arm dress!");
                 return new Item(playerLevel,EquipmentLocation.LEFT_ARM,locationLeftArm.get(0),locationLeftArm.get(1),locationLeftArm.get(2),locationLeftArm.get(3),locationLeftArm.get(4));
             }
-        }else if(result<=4 &&result>3){
+        }else if(result==4){
             if(itemProperties.containsKey("RIGHT_ARM")){
                 System.out.println("You got a right arm dress!");
                 return new Item(playerLevel,EquipmentLocation.RIGHT_ARM,locationRightArm.get(0),locationRightArm.get(1),locationRightArm.get(2),locationRightArm.get(3),locationRightArm.get(4));
@@ -166,7 +166,7 @@ public class ItemFactory {
                 System.out.println("You got a left hand dress!");
                 return new Item(playerLevel,EquipmentLocation.LEFT_HAND,locationLeftHand.get(0),locationLeftHand.get(1),locationLeftHand.get(2),locationLeftHand.get(3),locationLeftHand.get(4));
             }
-        }else if(result <=6&&result>5){
+        }else if(result ==6){
             if(itemProperties.containsKey("RIGHT_HAND")){
                 System.out.println("You got a right hand dress!");
                 return new Item(playerLevel,EquipmentLocation.RIGHT_HAND,locationRightHand.get(0),locationRightHand.get(1),locationRightHand.get(2),locationRightHand.get(3),locationRightHand.get(4));

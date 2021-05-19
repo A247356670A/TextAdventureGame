@@ -7,6 +7,7 @@ import java.util.Random;
 public class Item {
     private final EquipmentLocation equipmentLocation;
     private String name;
+    private int level;
     private int health;
     private int attack;
     private int defence;
@@ -16,6 +17,7 @@ public class Item {
     public Item(int playerLevel, EquipmentLocation equipmentLocation, int health, int attack, int defence, int avoidChance, int critChance) {
         Random rand = new Random();
         this.equipmentLocation = equipmentLocation;
+        this.setLevel(playerLevel);
         int swordHealth =  health + playerLevel * (rand.nextInt(2) + 1);
         this.setName(equipmentLocation.name());
         this.setHealth(swordHealth);
@@ -24,6 +26,9 @@ public class Item {
         this.setAvoidChance(avoidChance + playerLevel * (rand.nextInt(2) + 1));
         this.setCritChance(critChance + playerLevel * (rand.nextInt(2) + 1));
     }
+    public int getLevel(){ return level; }
+
+    public void setLevel(int level){this.level = level;}
 
     public String getName() {
         return name;
