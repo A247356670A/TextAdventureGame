@@ -58,24 +58,30 @@ public class Location {
                     continue;
 
                 case '3':
-                    System.out.println("You choose to go to Boss Room");
-                    System.out.println("Do you want to enter Boos Room? (Y/N):");
-                    char confirmBoss1 = LocationUtility.readConfirmSelection();
-                    if (confirmBoss1 == 'Y') {
-                        System.out.println("Warning!: You will not be allowed to leave once you entry this room.");// You will end this game whether you defeat the Boss or not
-                        System.out.println("Warning!: Are you sure?(Y/N)");
-                        char confirmBoss2 = LocationUtility.readConfirmSelection();
-                        if (confirmBoss2 == 'Y') {
-                            System.out.println("You choose to enter Boss Room");
-                            Enemy boss = new EnemyFactory().loadBoss();
-                            new Battle(player,boss);
-                            new Talk(player,"Chapter 3");
+                    if (bossRoomFlag){
+                        System.out.println("You choose to go to Boss Room");
+                        System.out.println("Do you want to enter Boos Room? (Y/N):");
+                        char confirmBoss1 = LocationUtility.readConfirmSelection();
+                        if (confirmBoss1 == 'Y') {
+                            System.out.println("Warning!: You will not be allowed to leave once you entry this room.");// You will end this game whether you defeat the Boss or not
+                            System.out.println("Warning!: Are you sure?(Y/N)");
+                            char confirmBoss2 = LocationUtility.readConfirmSelection();
+                            if (confirmBoss2 == 'Y') {
+                                System.out.println("You choose to enter Boss Room");
+                                Enemy boss = new EnemyFactory().loadBoss();
+                                new Battle(player,boss);
+                                new Talk(player,"Chapter 3");
+                            }else {
+                                break;
+                            }
                         }else {
-                            break;
+                            continue;
                         }
                     }else {
+                        System.out.println("How about we explore the area ahead of us later!");
                         continue;
                     }
+
                 case '4':
                     mainMapFlag = false;
                     break;
@@ -107,12 +113,15 @@ public class Location {
                     if (LocationUtility.inToCamp()){
                         System.out.println("---------------You enter the Camp area-----------------");
                         System.out.println("You are safe, for now.");
+                        System.out.println("You take a breath and recover some health");
+                        player.heal(player.getHealthMax() * 10 /100);
+                        System.out.println("(" + player.getHealth() + "/" + player.getHealthMax() + ")");
                     }else {
                         if (LocationUtility.inToBattle()){
                             Enemy enemy = enemyFactory.generateEnemies(player);
-                            if ("GOBLIN".equals(enemy.getName())){
+                            if (enemy.getName().contains("Goblin")){
                                 new Talk(player,"Chapter 2-1");
-                            }else {
+                            }else if (enemy.getName().contains("Slime")){
                                 new Talk(player,"Chapter 2-2");
                                 killSlime = true;
                             }
@@ -175,7 +184,7 @@ public class Location {
         do {
             System.out.println("---------------City-----------------");
             System.out.println("        1. NPC");
-            System.out.println("        2. Pass this turn");
+            System.out.println("        2. Get some rest");
             System.out.println("        3. Leave");
             char key = LocationUtility.readMapSelection();
             System.out.println();
@@ -184,12 +193,17 @@ public class Location {
                     //跟NPC谈话的内容
                     if (killSlime) {
                         new Talk(player, "Chapter 2-3");
+                        System.out.println("Now you know the way to the boss room!");
+                        bossRoomFlag = true;
                     }else {
                         new Talk(player, "Chapter 1");
                     }
                     continue;
                 case '2':
                     //休息的功能
+                    System.out.println("You find a hotel, the own offer your a free room and a big dinner. \r\n\"It has been a long time to see such a warrior like you! \" he said, \r\n\"I used to be an adventurer like you, then I took an arrow in the knee.\"");
+                    System.out.println("You take a good sleep and feels like reborn");
+                    player.healAll();
                     continue;
                 case '3':
                     System.out.print("Do you want to leave City? (Y/N):");
@@ -205,7 +219,4 @@ public class Location {
         } while (cityFlag);
     }
 
-    public void bossRoom(Player player) {
-
-    }
 }

@@ -65,7 +65,9 @@ public class PlayerTest {
     @Test
     public void levelUp() {
 //        player.setExp(101);
-//        this.testUserInput("1\n");
+//
+//        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
+//
 //        new Thread(() -> {
 //            player.levelUp();
 //        }).start();

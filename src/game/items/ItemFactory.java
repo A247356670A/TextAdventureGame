@@ -30,6 +30,7 @@ public class ItemFactory {
             jsonReader = new JsonReader(new FileReader(file));
             List<JsonObject> list = gson.fromJson(jsonReader, List.class);
             for (Object b : list) {
+                System.out.println(b);
                 String[] tokens = b.toString().split("=");
                 String itemProperty = tokens[1].substring(0, tokens[1].length() - 13);
                 int health = removeLastX(tokens[2], 15);
@@ -41,6 +42,7 @@ public class ItemFactory {
                 List<Integer> properties = Arrays.asList(health, attack, defence, avoidChance, critChance, rate);
                 itemProperties.put(itemProperty, properties);
                 System.out.println("here");
+
             }
         } catch (Exception e) {
             e.printStackTrace();

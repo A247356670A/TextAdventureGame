@@ -2,7 +2,7 @@
   "exp": 2000,
   "level": 99,
   "name": "Wolf warrior",
-  "healthMax": 500,
+  "healthMax": 1000,
   "health": 500,
   "magicMax": 100,
   "magic": 100,

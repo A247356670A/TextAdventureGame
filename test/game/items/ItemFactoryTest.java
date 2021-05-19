@@ -8,7 +8,7 @@ import java.util.Random;
 
 import static org.junit.Assert.*;
 
-/*public class ItemFactoryTest {
+public class ItemFactoryTest {
     @Test
     public void generateItem() {
         ItemFactory itemFactory = new ItemFactory();
@@ -26,7 +26,7 @@ import static org.junit.Assert.*;
         ItemFactory itemFactory = new ItemFactory();
         Player player = new Player("Default Player");
         Item sword = itemFactory.generateItem(player);
-        sword.view();
+//        sword.view();
     }
     @Test
     public void testGenerateItems() {
@@ -40,7 +40,10 @@ import static org.junit.Assert.*;
         itemFactory.loadItem(file);
     }
     @Test
-    public void testLoadItemProperties() {
+    public void testLoadItemProperties(){
+        ItemFactory itemFactory = new ItemFactory();
+        File file = new File("json/db/swordProperties.json");
+        itemFactory.loadItemProperties(file);
     }
 
     @Test
@@ -48,4 +51,4 @@ import static org.junit.Assert.*;
     }
 
 
-}*/
+}

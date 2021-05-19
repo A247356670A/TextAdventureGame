@@ -4,9 +4,15 @@ import game.enemies.Enemy;
 
 import java.util.Random;
 
-public class Item extends Enemy {
+public class Item {
     private final EquipmentLocation equipmentLocation;
-    
+    private String name;
+    private int health;
+    private int attack;
+    private int defence;
+    private int avoidChance;
+    private int critChance;
+
     public Item(int playerLevel, EquipmentLocation equipmentLocation, int health, int attack, int defence, int avoidChance, int critChance) {
         Random rand = new Random();
         this.equipmentLocation = equipmentLocation;
@@ -17,6 +23,54 @@ public class Item extends Enemy {
         this.setDefence(defence + playerLevel * (rand.nextInt(2) + 1));
         this.setAvoidChance(avoidChance + playerLevel * (rand.nextInt(2) + 1));
         this.setCritChance(critChance + playerLevel * (rand.nextInt(2) + 1));
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public int getDefence() {
+        return defence;
+    }
+
+    public void setDefence(int defence) {
+        this.defence = defence;
+    }
+
+    public int getAvoidChance() {
+        return avoidChance;
+    }
+
+    public void setAvoidChance(int avoidChance) {
+        this.avoidChance = avoidChance;
+    }
+
+    public int getCritChance() {
+        return critChance;
+    }
+
+    public void setCritChance(int critChance) {
+        this.critChance = critChance;
     }
 }
 /*package game.items;

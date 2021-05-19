@@ -26,11 +26,11 @@ public class Player extends Peon {
         this.setMagic(100);
         this.setHealthMax(100);
         this.setHealth(100);
-        this.setStrength(8);
-        this.setEndurance(8);
-        this.setAgility(8);
-        this.setLuck(8);
-        this.setIntelligence(8);
+        this.setStrength(10);
+        this.setEndurance(10);
+        this.setAgility(10);
+        this.setLuck(10);
+        this.setIntelligence(10);
         saveToJSONFile("json/profile/player.json");
 
     }
@@ -42,6 +42,8 @@ public class Player extends Peon {
         this.level = level;
         this.setMagicMax(magicMax);
         this.setMagic(magic);
+        this.setHealthMax(healthMax);
+        this.setHealth(health);
         this.setStrength(strength);
         this.setEndurance(endurance);
         this.setAgility(agility);
@@ -244,5 +246,16 @@ public class Player extends Peon {
         }
     }
 
-
+    @Override
+    public void view() {
+        System.out.println("The current status of " + this.getName() + " is: ");
+        System.out.println("EXP: "+ this.getExp() + "/" + this.getCharacterLevels().get(this.getLevel()).get(0));
+        System.out.println("HP: " + this.getHealth() + "/" + this.getHealthMax());
+        System.out.println("MP: " + this.getMagic() + "/" + this.getMagicMax());
+        System.out.println("STR: " + this.getStrength());
+        System.out.println("EDU: " + this.getEndurance());
+        System.out.println("AGI: " + this.getAgility());
+        System.out.println("LUCK: " + this.getLuck());
+        System.out.println("INT: " + this.getIntelligence());
+    }
 }

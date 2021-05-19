@@ -23,7 +23,7 @@ public class Battle {
         escapeFlag = true;
         if (battleFlag)
             do {
-//            printOutSleep(800);
+            printOutSleep(800);
                 System.out.println("What would you do?");
                 System.out.println("1. Attack");
                 System.out.println("2. Defence");
@@ -34,7 +34,7 @@ public class Battle {
 
                 switch (key) {
                     case '1':
-//                    printOutSleep(800);
+                    printOutSleep(800);
                         System.out.println("You choose to Attack " + enemy.getName());
                         attack(player, enemy);
                         if (player.getHealth() <= 0) {
@@ -65,7 +65,7 @@ public class Battle {
                         }
                         continue;
                     case '2':
-//                    printOutSleep(800);
+                    printOutSleep(800);
                         System.out.println("You choose to Defence.");
                         defence(player, enemy);
                         if (player.getHealth() <= 0) {
@@ -96,7 +96,7 @@ public class Battle {
 
                         continue;
                     case '3':
-//                    printOutSleep(800);
+                    printOutSleep(800);
                         System.out.println("You choose to inspect");
                         boolean inspectFlag = true;
                         while (inspectFlag) {
@@ -108,12 +108,12 @@ public class Battle {
                             char target = LocationUtility.readMapSelection();
                             switch (target) {
                                 case '1':
-//                                printOutSleep(800);
+                                printOutSleep(800);
                                     System.out.println("You choose to Check " + player.getName());
                                     player.view();
                                     continue;
                                 case '2':
-//                                printOutSleep(800);
+                                printOutSleep(800);
                                     System.out.println("You choose to Check " + enemy.getName());
                                     enemy.view();
                                     continue;
@@ -126,37 +126,42 @@ public class Battle {
                         }
                         continue;
                     case '4':
-//                    printOutSleep(800);
+                    printOutSleep(800);
                         System.out.println("You choose to Escape.");
                         if (escapeFlag) {
 //                        printOutSleep(800);
                             System.out.print("Do you want to Escape? (Y/N):");
                             char confirm = LocationUtility.readConfirmSelection();
                             if (confirm == 'Y') {
-//                            printOutSleep(800);
+                            printOutSleep(800);
                                 System.out.println("You choose YES.");
                                 Random random = new Random();
-
-                                int luck = 50 + player.getLuck() - enemy.getSkillChance();
-                                int result = random.nextInt(100);
-                                if (result < luck) {
-//                                printOutSleep(800);
-                                    System.out.println("You are luck to escape from that battle.");
-                                    battleFlag = false;
-
-                                } else {
-//                                printOutSleep(800);
-                                    System.out.println("You are failed to escape from this battle.");
+                                if (enemy.getEnemyProperty() == EnemyProperty.BOSS){
+                                    System.out.println("The dark power block the way back, you can't escape!");
                                     escapeFlag = false;
+                                }else {
+                                    int luck = 50 + player.getLuck() - enemy.getSkillChance();
+                                    int result = random.nextInt(100);
+                                    if (result < luck) {
+                                        printOutSleep(800);
+                                        System.out.println("You are luck to escape from that battle.");
+                                        battleFlag = false;
+
+                                    } else {
+                                        printOutSleep(800);
+                                        System.out.println("You are failed to escape from this battle.");
+                                        escapeFlag = false;
+                                    }
                                 }
 
+
                             } else {
-//                            printOutSleep(800);
+                            printOutSleep(800);
                                 System.out.println("You don’t want to be a coward. You clung to your weapon and returned to the fight.");
                             }
                             break;
                         } else {
-//                        printOutSleep(800);
+                        printOutSleep(800);
                             System.out.println("You can't escape anymore.");
                         }
 
@@ -165,18 +170,23 @@ public class Battle {
     }
 
     public boolean death(Enemy enemy, Player player) {
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println("Unfortunately you dead when you flight with " + enemy.getName());
-//        printOutSleep(800);
+        printOutSleep(800);
         if (enemy.getEnemyProperty() == EnemyProperty.BOSS){
+            printOutSleep(800);
             System.out.println("\r\n\r\n");
+            printOutSleep(800);
             System.out.println("-------------------------------GAME OVER-------------------------------");
+            printOutSleep(800);
+            printOutSleep(800);
             System.out.print(enemy.getName() + "punished your soul, You have lost everything.");
             System.out.println("\r\n\r\n");
 
             return true;
 
         }
+        printOutSleep(800);
         System.out.print("Do you want to restart this game? (Y/N):");
         char confirm = LocationUtility.readConfirmSelection();
         if (confirm == 'Y') {
@@ -187,9 +197,9 @@ public class Battle {
     }
 
     public void win(Player player, Enemy enemy) {
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println("Congratulations!, you killed " + enemy.getName());
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println("You get " + enemy.getExpGain() + " exp from this battle.");
         player.setExp(player.getExp() + enemy.getExpGain());
         player.saveToJSONFile("json/profile/player.json");
@@ -206,7 +216,7 @@ public class Battle {
     public void attack(Player player, Enemy enemy) {
         // player turn
         Random rand = new Random();
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println("You attack " + enemy.getName() + " with some weapon");
         int playerDamage = player.getAttack() - enemy.getDefence();
 
@@ -217,20 +227,20 @@ public class Battle {
         if (!avoid(enemy)) {
             if (!crit(player)) {
                 enemy.setHealth(enemy.getHealth() - playerDamage);
-//                printOutSleep(800);
+                printOutSleep(800);
                 System.out.println("You deal " + playerDamage + " points damage to the " + enemy.getName() + "  (" + enemy.getHealth() + "/" + enemy.getHealthMax() + ")");
             } else {
                 playerDamage = playerDamage * 2;
                 enemy.setHealth(enemy.getHealth() - playerDamage);
-//                printOutSleep(800);
+                printOutSleep(800);
                 System.out.println("You deal " + playerDamage + " points damage to the " + enemy.getName() + "  (" + enemy.getHealth() + "/" + enemy.getHealthMax() + ")");
             }
 
         }
         if (enemy.getHealth() > 0) {
             // enemy turn
-//            printOutSleep(800);
-            if (enemy.getEnemyProperty() == EnemyProperty.BOSS && rand.nextInt(100) + 1 <= enemy.getSkillChance()) {
+            printOutSleep(800);
+            if ((enemy.getEnemyProperty() == EnemyProperty.BOSS && rand.nextInt(100) + 1 <= enemy.getSkillChance()) ||(enemy.getEnemyProperty() == EnemyProperty.BOSS && enemy.getHealth() <= enemy.getHealthMax() /4) ) {
                 bossSkill(enemy);
             }
 
@@ -243,12 +253,12 @@ public class Battle {
             if (!avoid(player)) {
                 if (!crit(enemy)) {
                     player.setHealth(player.getHealth() - enemyDamage);
-//                    printOutSleep(800);
+                    printOutSleep(800);
                     System.out.println("You get " + enemyDamage + " points damage from the " + enemy.getName() + "  (" + player.getHealth() + "/" + player.getHealthMax() + ")");
                 } else {
                     enemyDamage = enemyDamage * 2;
                     player.setHealth(player.getHealth() - enemyDamage);
-//                    printOutSleep(800);
+                    printOutSleep(800);
                     System.out.println("You get " + enemyDamage + " points damage from the 2" + enemy.getName() + "  (" + player.getHealth() + "/" + player.getHealthMax() + ")");
                 }
             }
@@ -270,11 +280,11 @@ public class Battle {
 
     public void defence(Player player, Enemy enemy) {
         Random random = new Random();
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println("You get ready for the coming attack.");
         int playerDefence = player.getDefence();
         player.setDefence(playerDefence * (100 + player.getEndurance()) / 100);
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println("Your Defence temporarily increase " + (player.getDefence() - playerDefence) + " points!");
         int lostHealth = player.getHealthMax() - player.getHealth();
         int healHealth = lostHealth * (player.getEndurance() + lostHealthBounds(player)) / (100 - random.nextInt(player.getEndurance()));
@@ -282,13 +292,13 @@ public class Battle {
             healHealth = 1;
         }
         player.setHealth(player.getHealth() + healHealth);
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println("You take a breath and recover " + healHealth + " points health.");
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println("You health is current " + player.getHealth() + "/" + player.getHealthMax());
 
         // enemy turn
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println(enemy.getName() + " attack you with some weapon");
         int enemyDamage = enemy.getAttack() - player.getDefence();
         if (enemyDamage <= 0) {
@@ -298,12 +308,12 @@ public class Battle {
         if (!avoid(player)) {
             if (!crit(enemy)) {
                 player.setHealth(player.getHealth() - enemyDamage);//sdada
-//                printOutSleep(800);
+                printOutSleep(800);
                 System.out.println("You get " + enemyDamage + " points damage from the " + enemy.getName() + "  (" + player.getHealth() + "/" + player.getHealthMax() + ")");
             } else {
                 enemyDamage = enemyDamage * 2;
                 player.setHealth(player.getHealth() - enemyDamage);
-//                printOutSleep(800);
+                printOutSleep(800);
                 System.out.println("You get " + enemyDamage + " points damage from the " + enemy.getName() + "  (" + player.getHealth() + "/" + player.getHealthMax() + ")");
             }
         }
@@ -313,11 +323,11 @@ public class Battle {
 
     public void bossSkill(Enemy enemy) {
         Random random = new Random();
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println(enemy.getName() + " feels very angry.");
         int bossAttack = enemy.getAttack();
         enemy.setAttack(bossAttack + bossAttack * (random.nextInt(20) + 10) / 100);
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println(enemy.getName() + "'s Attack increase " + (enemy.getAttack() - bossAttack) + " points!");
         int lostHealth = enemy.getHealthMax() - enemy.getHealth();
         int healHealth = lostHealth * 50 / 100;
@@ -325,7 +335,7 @@ public class Battle {
             healHealth = 1;
         }
         enemy.setHealth(enemy.getHealth() + healHealth);
-//        printOutSleep(800);
+        printOutSleep(800);
         System.out.println(enemy.getName() + " use dark magic to recover " + healHealth + " points health." + "(" + enemy.getHealth() + "/" + enemy.getHealthMax() + ")");
 
     }
@@ -334,7 +344,7 @@ public class Battle {
         Random random = new Random();
         int peonAvoidChance = peon.getAvoidChance();
         if (random.nextInt(100) <= peonAvoidChance) {
-//            printOutSleep(800);
+            printOutSleep(800);
             System.out.println("The attack was missed");
             return true;
         }
@@ -345,7 +355,7 @@ public class Battle {
         Random random = new Random();
         int peonCritChance = peon.getCritChance();
         if (random.nextInt(100) <= peonCritChance) {
-//            printOutSleep(800);
+            printOutSleep(800);
             System.out.println("This attack took a crit");
             return true;
         }
@@ -356,7 +366,7 @@ public class Battle {
         Random random = new Random();
         int enemyPoisonChance = enemy.getSkillChance();
         if (random.nextInt(100) + 1 <= enemyPoisonChance) {
-//            printOutSleep(800);
+            printOutSleep(800);
             System.out.println("This attack deal a poison");
             return true;
         }

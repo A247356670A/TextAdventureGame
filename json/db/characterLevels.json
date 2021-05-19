@@ -12,7 +12,7 @@
   },
   {
     "Level": 2,
-    "exp": 20,
+    "exp": 25,
     "healthMax": 10,
     "magicMax": 10,
     "strength": 2,
@@ -23,7 +23,7 @@
   },
   {
     "Level": 3,
-    "exp": 50,
+    "exp": 35,
     "healthMax": 20,
     "magicMax": 20,
     "strength": 3,
@@ -35,7 +35,7 @@
   },
   {
     "Level": 4,
-    "exp": 100,
+    "exp": 45,
     "healthMax": 25,
     "magicMax": 25,
     "strength": 4,
@@ -47,19 +47,19 @@
   },
   {
     "Level": 5,
-    "exp": 200,
+    "exp": 55,
     "healthMax": 30,
     "magicMax": 30,
-    "strength": 5,
-    "endurance": 5,
-    "agility": 5,
-    "luck": 5,
-    "intelligence": 5
+    "strength": 70,
+    "endurance": 55,
+    "agility": 55,
+    "luck": 55,
+    "intelligence": 55
 
   },
   {
     "Level": 6,
-    "exp": 300,
+    "exp": 65,
     "healthMax": 40,
     "magicMax": 40,
     "strength": 6,
@@ -71,7 +71,7 @@
   },
   {
     "Level": 7,
-    "exp": 400,
+    "exp": 75,
     "healthMax": 50,
     "magicMax": 50,
     "strength": 7,
@@ -83,7 +83,7 @@
   },
   {
     "Level": 8,
-    "exp": 500,
+    "exp": 85,
     "healthMax": 60,
     "magicMax": 60,
     "strength": 8,
@@ -95,7 +95,7 @@
   },
   {
     "Level": 9,
-    "exp": 600,
+    "exp": 95,
     "healthMax": 70,
     "magicMax": 70,
     "strength": 9,
@@ -107,8 +107,8 @@
   },
   {
     "Level": 10,
-    "exp": 700,
-    "healthMax": 80,
+    "exp": 200,
+    "healthMax": 100,
     "magicMax": 80,
     "strength": 10,
     "endurance": 10,
