@@ -6,6 +6,8 @@ import game.enemies.Enemy;
 import game.enemies.EnemyFactory;
 import game.event.Battle;
 import game.event.Talk;
+import game.items.Item;
+import game.items.ItemFactory;
 import game.peons.Player;
 
 
@@ -97,6 +99,7 @@ public class Location {
     public void battleMap(Player player) {
         battleMapFlag = true;
         EnemyFactory enemyFactory = new EnemyFactory();
+        ItemFactory itemFactory = new ItemFactory();
         do {
             System.out.println("---------------Battle Map-----------------");
             System.out.println("        1. Go ahead");
@@ -137,6 +140,25 @@ public class Location {
                 case '2':
                     //探索？？
                     System.out.println("You choose to Search");
+                    Item item = itemFactory.generateItem(player);
+                    if (item != null){
+                        System.out.println("You find something, would you like to check it? (Y/N)");
+                        char confirmSearch = LocationUtility.readConfirmSelection();
+                        if (confirmSearch == 'Y') {
+                            item.view();
+                            System.out.println("Do you want to equip this? (Y/N)");
+                            char confirmSearch2 = LocationUtility.readConfirmSelection();
+                            if (confirmSearch2 == 'Y'){
+                                player.equip(item);
+                            }else {
+                                break;
+                            }
+                        }else {
+                            continue;
+                        }
+                    }
+
+
                     continue;
                 case '3':
                     //inspect?? 需要确定每个location和location里都有什么东西.
