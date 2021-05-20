@@ -2,6 +2,8 @@ package game.peons;
 
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
+import game.items.EquipmentLocation;
+import game.items.Item;
 import game.locations.Location;
 import game.locations.LocationUtility;
 
@@ -31,11 +33,12 @@ public class Player extends Peon {
         this.setAgility(10);
         this.setLuck(10);
         this.setIntelligence(10);
+        this.setEquipments(new HashMap<>());
         saveToJSONFile("json/profile/player.json");
 
     }
 
-    public Player(String name, int exp, int level, int healthMax, int health, int magicMax, int magic, int strength, int endurance, int agility, int luck, int intelligence) {
+    public Player(String name, int exp, int level, int healthMax, int health, int magicMax, int magic, int strength, int endurance, int agility, int luck, int intelligence, Map<EquipmentLocation, Item> equipments) {
         loadCharacterLevels("json/db/characterLevels.json");
         this.setName(name);
         this.exp = exp;
@@ -49,6 +52,7 @@ public class Player extends Peon {
         this.setAgility(agility);
         this.setLuck(luck);
         this.setIntelligence(intelligence);
+        this.setEquipments(equipments);
         saveToJSONFile("json/profile/player.json");
     }
 
@@ -89,14 +93,14 @@ public class Player extends Peon {
     }
 
     public void saveToJSONFile(String fileName) {
-        File file = new File("json/profile/player.json");
+        File file = new File(fileName);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        try (FileWriter fw = new FileWriter(fileName, false)) {
+        try (FileWriter fw = new FileWriter(file, false)) {
             gson.toJson(this, fw);
         } catch (Exception e) {
-            System.err.println("There is an error when load: \"json/profile/player.json\"");
+            System.err.println("There is an error when save to : \"json/profile/player.json\"");
             e.printStackTrace();
         }
 
@@ -246,6 +250,37 @@ public class Player extends Peon {
         }
     }
 
+    public void equip(Item item){
+        if (this.getEquipment(item.getEquipmentLocation()) == null){
+            System.out.println("You choose to equip " + item.getName());
+           setTheEquipments(item.getEquipmentLocation(),item);
+           this.saveToJSONFile("json/profile/player.json");
+        }else {
+            System.out.println("The current equipment is:");
+            this.getEquipment(item.getEquipmentLocation()).view();
+            System.out.println("Do you want to replace it?");
+            char confirm = LocationUtility.readConfirmSelection();
+            if (confirm == 'Y'){
+                System.out.println("You choose to replace this.");
+                setTheEquipments(item.getEquipmentLocation(),item);
+                this.saveToJSONFile("json/profile/player.json");
+            }else {
+                System.out.println("You choose not to replace this.");
+            }
+        }
+    }
+
+
+    public Item getEquipment(EquipmentLocation equipmentLocation){
+        if (this.getEquipments().get(equipmentLocation)== null){
+//            System.out.println("The " + equipmentLocation.name() + " is currently equipped nothing.");
+            return null;
+        }else {
+            return this.getEquipments().get(equipmentLocation);
+        }
+
+    }
+
     @Override
     public void view() {
         System.out.println("The current status of " + this.getName() + " is: ");
@@ -257,5 +292,14 @@ public class Player extends Peon {
         System.out.println("AGI: " + this.getAgility());
         System.out.println("LUCK: " + this.getLuck());
         System.out.println("INT: " + this.getIntelligence());
+    }
+
+    public Map<EquipmentLocation, Item> getTheEquipments() {
+        return this.getEquipments();
+    }
+
+    public void setTheEquipments(EquipmentLocation equipmentLocation, Item item) {
+
+        this.getEquipments().put(equipmentLocation,item);
     }
 }
