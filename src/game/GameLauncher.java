@@ -9,6 +9,7 @@ import game.peons.Player;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.List;
 
 import static game.locations.LocationUtility.readKeyBoard;
@@ -94,7 +95,7 @@ public class GameLauncher {
             int agility = removeLastX(tokens[10], 7);
             int luck = removeLastX(tokens[11], 15);
             int intelligence = removeLastX(tokens[12], 9);
-            return new Player(name,exp,level,healthMax,health,magicMax,magic,strength,endurance,agility,luck,intelligence);
+            return new Player(name,exp,level,healthMax,health,magicMax,magic,strength,endurance,agility,luck,intelligence,new HashMap<>());
         } catch (Exception e) {
             System.err.println("There is an error when load: \"json/profile/player.json\"");
             System.err.println("Generated new Player");

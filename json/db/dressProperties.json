@@ -19,7 +19,7 @@
     "rate": 12
   },
   {
-    "itemProperty": "LEFT ARM",
+    "itemProperty": "LEFT_ARM",
     "health": 20,
     "attack": 6,
     "defence": 5,
@@ -28,7 +28,7 @@
     "rate": 12
   },
   {
-    "itemProperty": "RIGHT ARM",
+    "itemProperty": "RIGHT_ARM",
     "health": 20,
     "attack": 6,
     "defence": 5,
@@ -37,7 +37,7 @@
     "rate": 12
   },
   {
-    "itemProperty": "LEFT HAND",
+    "itemProperty": "LEFT_HAND",
     "health": 20,
     "attack": 6,
     "defence": 5,
@@ -46,7 +46,7 @@
     "rate": 12
   },
   {
-    "itemProperty": "RIGHT HAND",
+    "itemProperty": "RIGHT_HAND",
     "health": 20,
     "attack": 6,
     "defence": 5,
@@ -55,7 +55,7 @@
     "rate": 12
   },
   {
-    "itemProperty": "BOTH HANDS",
+    "itemProperty": "BOTH_HANDS",
     "health": 20,
     "attack": 6,
     "defence": 5,

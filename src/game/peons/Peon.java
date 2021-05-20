@@ -25,22 +25,20 @@ public abstract class Peon {
     private int avoidChance;
     private int critChance;
     private Map<EquipmentLocation, Item> equipments;
-
     public Peon() {
-        this("Default", 100, 100, new HashMap<>());
+        this("Default", 100, 100);
     }
 
-    public Peon(String name, int healthMax, int health, Map<EquipmentLocation, Item> equipments) {
+    public Peon(String name, int healthMax, int health) {
         this.name = name;
         this.healthMax = healthMax;
         this.health = health;
-        this.equipments = equipments;
         this.strength = 0;
         this.endurance = 0;
         this.agility = 0;
         this.luck = 0;
         this.intelligence = 0;
-
+        this.equipments = new HashMap<>();
     }
 
     public int getHealthMax() {
@@ -253,13 +251,9 @@ public abstract class Peon {
         this.critChance = critChance;
     }
 
-    public Map<EquipmentLocation, Item> getEquipments() {
-        return equipments;
-    }
-
-    public void setEquipments(Map<EquipmentLocation, Item> equipments) {
-        this.equipments = equipments;
-    }
+//    public Map<EquipmentLocation, Item> getEquipments() {
+//        return equipments;
+//    }
 
     public String getName() {
         return name;
@@ -278,5 +272,13 @@ public abstract class Peon {
         System.out.println("AGI: " + this.agility);
         System.out.println("LUCK: " + this.luck);
         System.out.println("INT: " + this.intelligence);
+    }
+
+    public Map<EquipmentLocation, Item> getEquipments() {
+        return equipments;
+    }
+
+    public void setEquipments(Map<EquipmentLocation, Item> equipments) {
+        this.equipments = equipments;
     }
 }
