@@ -77,6 +77,19 @@ public class Item {
     public void setCritChance(int critChance) {
         this.critChance = critChance;
     }
+
+    public void view() {
+        System.out.println("The current status of " + this.getName() + " is: ");
+        System.out.println("HP: " + this.getHealth());
+        System.out.println("Attack: " + this.getAttack());
+        System.out.println("Defence: " + this.getDefence());
+        System.out.println("AvoidChance: " + this.getAvoidChance());
+        System.out.println("CritChance: " + this.getCritChance());
+    }
+
+    public EquipmentLocation getEquipmentLocation() {
+        return equipmentLocation;
+    }
 }
 /*package game.items;
 

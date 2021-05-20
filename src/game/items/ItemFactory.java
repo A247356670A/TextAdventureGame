@@ -33,6 +33,7 @@ public class ItemFactory {
                 //System.out.println(b);//loaded checked
                 String[] tokens = b.toString().split("=");
                 String itemProperty = tokens[1].substring(0, tokens[1].length() - 8);
+//                System.out.println(itemProperty);
                 //System.out.println("itemProperty:"+itemProperty);//loaded checked
                 int health = removeLastX(tokens[2], 10);
                 //System.out.println("health:"+health);//loaded checked
@@ -55,7 +56,7 @@ public class ItemFactory {
         return itemProperties;
     }
 
-    public HashMap<String, Integer> loadItem(File file){
+    public static HashMap<String, Integer> loadItem(File file){
         HashMap<String, Integer> items = new HashMap<>();
         Gson gson = new Gson();
         JsonReader jsonReader;
@@ -95,6 +96,7 @@ public class ItemFactory {
     public Item getSword(int playerLevel){
         File file = new File("json/db/swordProperties.json");
         HashMap<String, List<Integer>> itemProperties = loadItemProperties(file);
+
         List<Integer> locationLeftHand = itemProperties.get("LEFT_HAND");
         //System.out.println("locationLeftHand:"+locationLeftHand);//loaded checked
         List<Integer> locationRightHand = itemProperties.get("RIGHT_HAND");
@@ -104,25 +106,29 @@ public class ItemFactory {
         Random random = new Random();
         int result = random.nextInt(4);
         //int result = random.nextInt(locationLeftHand.get(5)+locationRightHand.get(5)+locationBothHands.get(5));
-        System.out.println("result:"+result);
+//        System.out.println("Sword result:"+result);
+//        System.out.println(itemProperties.get("LEFT_HAND"));
+//        System.out.println(itemProperties.get("RIGHT_HAND"));
+//        System.out.println(itemProperties.get("BOTH_HANDS"));
         //System.out.println("0"+locationLeftHand.get(0));
         //System.out.println("1"+locationLeftHand.get(1));
-        if(result <= 1){
+        if(result == 0){
             if(itemProperties.containsKey("LEFT_HAND")){
                 System.out.println("You got a left hand sword!");
                 return new Item(playerLevel,EquipmentLocation.LEFT_HAND,locationLeftHand.get(0),locationLeftHand.get(1),locationLeftHand.get(2),locationLeftHand.get(3),locationLeftHand.get(4));
             }
-        }else if(result <=2 && result >1){
+        }else if(result == 1){
             if(itemProperties.containsKey("RIGHT_HAND")){
                 System.out.println("You got a right hand sword!");
                 return new Item(playerLevel,EquipmentLocation.RIGHT_HAND,locationRightHand.get(0),locationRightHand.get(1),locationRightHand.get(2),locationRightHand.get(3),locationRightHand.get(4));
             }
-        }else if(result>2){
+        }else{
             if(itemProperties.containsKey("BOTH_HANDS")){
                 System.out.println("You got a both hands sword!");
                 return new Item(playerLevel,EquipmentLocation.BOTH_HANDS,locationBothHands.get(0),locationBothHands.get(1),locationBothHands.get(2),locationBothHands.get(3),locationBothHands.get(4));
             }
-        }return null;
+        }
+        return null;
     }
     public Item getDress(int playerLevel){
         File file = new File("json/db/dressProperties.json");
@@ -140,13 +146,13 @@ public class ItemFactory {
         List<Integer> locationFeet = itemProperties.get("FEET");
         Random random = new Random();
         int result = random.nextInt(10);
-        System.out.println(result);
+//        System.out.println(result);
         if(result <=1){
             if(itemProperties.containsKey("HEAD")){
                 System.out.println("You got a head dress!");
                 return new Item(playerLevel,EquipmentLocation.HEAD,locationHead.get(0),locationHead.get(1),locationHead.get(2),locationHead.get(3),locationHead.get(4));
             }
-        }else if(result<=2&&result>1){
+        }else if(result == 2){
             if(itemProperties.containsKey("CHEST")){
                 System.out.println("You got a chest dress!");
                 return new Item(playerLevel,EquipmentLocation.CHEST,locationChest.get(0),locationChest.get(1),locationChest.get(2),locationChest.get(3),locationChest.get(4));
@@ -161,7 +167,7 @@ public class ItemFactory {
                 System.out.println("You got a right arm dress!");
                 return new Item(playerLevel,EquipmentLocation.RIGHT_ARM,locationRightArm.get(0),locationRightArm.get(1),locationRightArm.get(2),locationRightArm.get(3),locationRightArm.get(4));
             }
-        }else if(result<=5&&result>4){
+        }else if(result == 5){
             if(itemProperties.containsKey("LEFT_HAND")){
                 System.out.println("You got a left hand dress!");
                 return new Item(playerLevel,EquipmentLocation.LEFT_HAND,locationLeftHand.get(0),locationLeftHand.get(1),locationLeftHand.get(2),locationLeftHand.get(3),locationLeftHand.get(4));
@@ -171,12 +177,12 @@ public class ItemFactory {
                 System.out.println("You got a right hand dress!");
                 return new Item(playerLevel,EquipmentLocation.RIGHT_HAND,locationRightHand.get(0),locationRightHand.get(1),locationRightHand.get(2),locationRightHand.get(3),locationRightHand.get(4));
             }
-        }else if(result <=7&&result>6){
+        }else if(result == 7){
             if(itemProperties.containsKey("BOTH_HANDS")){
                 System.out.println("You got a both hands dress!");
                 return new Item(playerLevel,EquipmentLocation.BOTH_HANDS,locationBothHands.get(0),locationBothHands.get(1),locationBothHands.get(2),locationBothHands.get(3),locationBothHands.get(4));
             }
-        }else if(result<=8&&result>7){
+        }else if(result == 8){
             if(itemProperties.containsKey("FEET")){
                 System.out.println("You got feet dress!");
                 return new Item(playerLevel,EquipmentLocation.FEET,locationFeet.get(0),locationFeet.get(1),locationFeet.get(2),locationFeet.get(3),locationFeet.get(4));
