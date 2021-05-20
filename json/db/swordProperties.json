@@ -1,11 +1,6 @@
 [
-  /* DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
-  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
-  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!
-  DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!! DRAFT!!*/
-
   {
-    "itemProperty": "LEFT HAND",
+    "itemProperty": "LEFT_HAND",
     "health": 20,
     "attack": 6,
     "defence": 5,
@@ -14,7 +9,7 @@
     "rate": 40
   },
   {
-    "itemProperty": "RIGHT HAND",
+    "itemProperty": "RIGHT_HAND",
     "health": 20,
     "attack": 6,
     "defence": 5,
@@ -23,7 +18,7 @@
     "rate": 40
   },
   {
-    "itemProperty": "BOTH HANDS",
+    "itemProperty": "BOTH_HANDS",
     "health": 20,
     "attack": 6,
     "defence": 5,
