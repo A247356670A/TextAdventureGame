@@ -13,8 +13,8 @@ import java.util.Map;
 public class Talk {
 
     public Talk(Player player, String str) {
-        List<String> contents = getContent(str);
-        List<Map<String, Object>> mapList = getTalk(str);
+        List<String> contents = getContent(str, player);
+        List<Map<String, Object>> mapList = getTalk(str, player);
         switch (str) {
             case "Background":
                 contents.forEach(System.out::println);
@@ -44,7 +44,7 @@ public class Talk {
      * @param key
      * @return
      */
-    public List<String> getContent(String key) {
+    public List<String> getContent(String key, Player player) {
         File file = new File("json/db/storyline.json");
         try (BufferedReader bf = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
             StringBuffer sb = new StringBuffer();
@@ -53,6 +53,9 @@ public class Talk {
                 sb.append(temp);
             }
             String jsonStr = sb.toString();
+            if (jsonStr.contains("Sun")){
+                jsonStr = jsonStr.replaceAll("Sun",player.getName());
+            }
             Gson gson = new Gson();
             Map<String, List<String>> map = gson.fromJson(jsonStr, Map.class);
             return map.get(key);
@@ -68,7 +71,7 @@ public class Talk {
      * @param key
      * @return
      */
-    public List<Map<String, Object>> getTalk(String key) {
+    public List<Map<String, Object>> getTalk(String key, Player player) {
         File file = new File("json/db/dialogue.json");
         try (BufferedReader bf = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
             StringBuffer sb = new StringBuffer();
@@ -77,6 +80,9 @@ public class Talk {
                 sb.append(temp);
             }
             String jsonStr = sb.toString();
+            if (jsonStr.contains("Sun")){
+                jsonStr = jsonStr.replaceAll("Sun",player.getName());
+            }
             Gson gson = new Gson();
             Map<String, List<Map<String, Object>>> map = gson.fromJson(jsonStr, Map.class);
             return map.get(key);
