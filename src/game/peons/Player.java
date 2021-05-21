@@ -28,11 +28,11 @@ public class Player extends Peon {
         this.setMagic(100);
         this.setHealthMax(100);
         this.setHealth(100);
-        this.setStrength(10);
-        this.setEndurance(10);
-        this.setAgility(10);
-        this.setLuck(10);
-        this.setIntelligence(10);
+        this.setStrength(8);
+        this.setEndurance(8);
+        this.setAgility(8);
+        this.setLuck(8);
+        this.setIntelligence(8);
         this.setEquipments(new HashMap<>());
         saveToJSONFile("json/profile/player.json");
 

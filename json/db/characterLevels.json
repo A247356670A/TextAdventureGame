@@ -38,11 +38,11 @@
     "exp": 45,
     "healthMax": 25,
     "magicMax": 25,
-    "strength": 4,
-    "endurance": 4,
-    "agility": 4,
-    "luck": 4,
-    "intelligence": 4
+    "strength": 80,
+    "endurance": 60,
+    "agility": 60,
+    "luck": 60,
+    "intelligence": 60
 
   },
   {

@@ -223,7 +223,7 @@ public class Location {
                     continue;
                 case '2':
                     //休息的功能
-                    System.out.println("You find a hotel, the own offer your a free room and a big dinner. \r\n\"It has been a long time to see such a warrior like you! \" he said, \r\n\"I used to be an adventurer like you, then I took an arrow in the knee.\"");
+                    System.out.println("You find a hotel, the owner offers your a free room and a big dinner. \r\n\"It has been a long time to see such a warrior like you! \" he said, \r\n\"I used to be an adventurer like you, then I took an arrow in the knee.\"");
                     System.out.println("You take a good sleep and feels like reborn");
                     player.healAll();
                     continue;

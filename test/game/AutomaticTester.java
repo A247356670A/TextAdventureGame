@@ -88,7 +88,7 @@ public class AutomaticTester {
         } catch (Exception e) {
             System.err.println("There is an error when load: \"json/db/characterLevels.json\"");
 
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         if (success) {
             System.out.println("CharacterLevels.json Status: OK!");
@@ -116,7 +116,7 @@ public class AutomaticTester {
             }
         } catch (Exception e) {
             System.err.println("There is an error when load: \"json/db/enemies.json\"");
-            e.printStackTrace();
+//            e.printStackTrace();
         }
 
         if (success) {
@@ -154,7 +154,7 @@ public class AutomaticTester {
             }
         }catch (Exception e) {
             System.err.println("There is an error when load: \"json/db/goblinProperties.json\"");
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         if (success) {
             System.out.println("goblinProperties.json Status: OK!");
@@ -191,7 +191,7 @@ public class AutomaticTester {
             }
         }catch (Exception e) {
             System.err.println("There is an error when load: \"json/db/slimeProperties.json\"");
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         if (success) {
             System.out.println("slimeProperties.json Status: OK!");
@@ -229,7 +229,7 @@ public class AutomaticTester {
             success = true;
         } catch (Exception e) {
             System.err.println("There is an error when load: \"json/profile/player.json\"");
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         if (success) {
             System.out.println("player.json Status: OK!");

@@ -1,19 +1,30 @@
 {
-  "exp": 0,
-  "level": 1,
-  "name": "cursedSoul",
-  "healthMax": 100,
-  "health": 100,
-  "magicMax": 100,
-  "magic": 100,
-  "strength": 1,
-  "endurance": 1,
-  "agility": 10,
-  "luck": 10,
-  "intelligence": 10,
-  "attack": 2,
-  "defence": 1,
-  "avoidChance": 10,
-  "critChance": 10,
-  "equipments": {}
+  "exp": 2035,
+  "level": 5,
+  "name": "req",
+  "healthMax": 1215,
+  "health": 1215,
+  "magicMax": 185,
+  "magic": 185,
+  "strength": 178,
+  "endurance": 238,
+  "agility": 8,
+  "luck": 8,
+  "intelligence": 8,
+  "attack": 356,
+  "defence": 238,
+  "avoidChance": 8,
+  "critChance": 8,
+  "equipments": {
+    "BOTH_HANDS": {
+      "equipmentLocation": "BOTH_HANDS",
+      "name": "BOTH_HANDS",
+      "level": 4,
+      "health": 28,
+      "attack": 14,
+      "defence": 13,
+      "avoidChance": 5,
+      "critChance": 5
+    }
+  }
 }
