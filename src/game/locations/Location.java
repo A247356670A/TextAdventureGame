@@ -72,7 +72,7 @@ public class Location {
                                 System.out.println("You choose to enter Boss Room");
                                 Enemy boss = new EnemyFactory().loadBoss();
                                 new Battle(player,boss);
-                                new Talk(player,"Chapter 3");
+
                             }else {
                                 break;
                             }

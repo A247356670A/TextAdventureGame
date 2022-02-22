@@ -54,7 +54,7 @@ public class EnemyFactory {
             return new Boss(name,healthMax,magicMax,attack,defence,avoidChance,critChance,exp, skillChance);
         } catch (Exception e) {
             System.err.println("There is an error when load: \"json/db/bossProperty.json\"");
-            e.printStackTrace();
+//            e.printStackTrace();
             return null;
         }
     }
@@ -83,7 +83,7 @@ public class EnemyFactory {
             }
         } catch (Exception e) {
             System.err.println("There is an error when load: \"" + file.getPath() + "\"");
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return enemyProperties;
     }
@@ -105,7 +105,7 @@ public class EnemyFactory {
             }
         } catch (Exception e) {
             System.err.println("There is an error when load: \"json/db/enemies.json\"");
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         return enemies;
     }

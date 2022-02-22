@@ -1,9 +1,9 @@
 {
-  "exp": 0,
+  "exp": 3,
   "level": 1,
-  "name": "John Wick",
+  "name": "john",
   "healthMax": 100,
-  "health": 100,
+  "health": 79,
   "magicMax": 100,
   "magic": 100,
   "strength": 8,
@@ -15,5 +15,16 @@
   "defence": 8,
   "avoidChance": 8,
   "critChance": 8,
-  "equipments": {}
+  "equipments": {
+    "LEFT_ARM": {
+      "equipmentLocation": "LEFT_ARM",
+      "name": "LEFT_ARM",
+      "level": 1,
+      "health": 22,
+      "attack": 8,
+      "defence": 6,
+      "avoidChance": 3,
+      "critChance": 3
+    }
+  }
 }

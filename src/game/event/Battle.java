@@ -38,6 +38,14 @@ public class Battle {
                         System.out.println("You choose to Attack " + enemy.getName());
                         attack(player, enemy);
                         if (player.getHealth() <= 0) {
+
+                            if (death(enemy, player)) {
+//                                String str = player.getName();
+//                                player = new Player(str);
+                                player.healAll();
+                                battleFlag = false;
+                                break;
+                            }
                             if (death(enemy, player) && enemy.getEnemyProperty() == EnemyProperty.BOSS) {
                                 Player cursedSoul = new Player("cursedSoul");
                                 cursedSoul.setStrength(1);
@@ -46,13 +54,6 @@ public class Battle {
                                 battleFlag = false;
                                 break;
 
-                            }
-                            if (death(enemy, player)) {
-                                String str = player.getName();
-                                player = new Player(str);
-                                battleFlag = false;
-
-                                break;
                             }
                             Location.mainMapFlag = false;
                             battleFlag = false;
@@ -69,6 +70,14 @@ public class Battle {
                         System.out.println("You choose to Defence.");
                         defence(player, enemy);
                         if (player.getHealth() <= 0) {
+
+                            if (death(enemy, player)){
+//                                String str = player.getName();
+//                                player = new Player(str);
+                                player.healAll();
+                                battleFlag = false;
+                                break;
+                            }
                             if (death(enemy, player) && enemy.getEnemyProperty() == EnemyProperty.BOSS) {
                                 Player cursedSoul = new Player("cursedSoul");
                                 cursedSoul.setStrength(1);
@@ -77,12 +86,6 @@ public class Battle {
                                 battleFlag = false;
                                 break;
 
-                            }
-                            if (death(enemy, player)){
-                                String str = player.getName();
-                                player = new Player(str);
-                                battleFlag = false;
-                                break;
                             }
                             Location.mainMapFlag = false;
                             battleFlag = false;
@@ -182,7 +185,6 @@ public class Battle {
             printOutSleep(800);
             System.out.print(enemy.getName() + "punished your soul, You have lost everything.");
             System.out.println("\r\n\r\n");
-
             return true;
 
         }
@@ -197,12 +199,16 @@ public class Battle {
     }
 
     public void win(Player player, Enemy enemy) {
+        if (enemy.getEnemyProperty() ==EnemyProperty.BOSS){
+            new Talk(player,"Chapter 3");
+        }
         printOutSleep(800);
         System.out.println("Congratulations!, you killed " + enemy.getName());
         printOutSleep(800);
         System.out.println("You get " + enemy.getExpGain() + " exp from this battle.");
         player.setExp(player.getExp() + enemy.getExpGain());
         player.saveToJSONFile("json/profile/player.json");
+
     }
 
     private void printOutSleep(int sleepLength) {
@@ -240,7 +246,7 @@ public class Battle {
         if (enemy.getHealth() > 0) {
             // enemy turn
             printOutSleep(800);
-            if ((enemy.getEnemyProperty() == EnemyProperty.BOSS && rand.nextInt(100) + 1 <= enemy.getSkillChance()) ||(enemy.getEnemyProperty() == EnemyProperty.BOSS && enemy.getHealth() <= enemy.getHealthMax() /4) ) {
+            if ((enemy.getEnemyProperty() == EnemyProperty.BOSS && rand.nextInt(100) + 1 <= enemy.getSkillChance()) ||(enemy.getEnemyProperty() == EnemyProperty.BOSS && enemy.getHealth() <= enemy.getHealthMax() /3) ) {
                 bossSkill(enemy);
             }
 
@@ -249,6 +255,7 @@ public class Battle {
             if (enemyDamage <= 0) {
                 enemyDamage = 1;
             }
+
             enemyDamage = rand.nextInt((int) (enemyDamage * 1.2)) + (int) (enemyDamage * 0.8);
             if (!avoid(player)) {
                 if (!crit(enemy)) {
