@@ -1,9 +1,9 @@
 {
-  "exp": 3,
+  "exp": 0,
   "level": 1,
-  "name": "john",
+  "name": "Jack",
   "healthMax": 100,
-  "health": 79,
+  "health": 100,
   "magicMax": 100,
   "magic": 100,
   "strength": 8,
@@ -16,12 +16,12 @@
   "avoidChance": 8,
   "critChance": 8,
   "equipments": {
-    "LEFT_ARM": {
-      "equipmentLocation": "LEFT_ARM",
-      "name": "LEFT_ARM",
+    "BOTH_HANDS": {
+      "equipmentLocation": "BOTH_HANDS",
+      "name": "BOTH_HANDS",
       "level": 1,
-      "health": 22,
-      "attack": 8,
+      "health": 21,
+      "attack": 7,
       "defence": 6,
       "avoidChance": 3,
       "critChance": 3

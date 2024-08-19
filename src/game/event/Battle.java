@@ -27,8 +27,9 @@ public class Battle {
                 System.out.println("What would you do?");
                 System.out.println("1. Attack");
                 System.out.println("2. Defence");
-                System.out.println("3. View");
-                System.out.println("4. Escape");
+                System.out.println("3. Skill");
+                System.out.println("4. View");
+                System.out.println("5. Escape");
                 char key = LocationUtility.readMapSelection();
                 System.out.println();
 
@@ -99,6 +100,10 @@ public class Battle {
 
                         continue;
                     case '3':
+                        printOutSleep(800);
+                        System.out.println("You choose to Attack " + enemy.getName());
+                        continue;
+                    case '4':
                     printOutSleep(800);
                         System.out.println("You choose to inspect");
                         boolean inspectFlag = true;
@@ -128,7 +133,7 @@ public class Battle {
                             }
                         }
                         continue;
-                    case '4':
+                    case '5':
                     printOutSleep(800);
                         System.out.println("You choose to Escape.");
                         if (escapeFlag) {
